@@ -1,0 +1,41 @@
+下载Git
+安装git
+
+1.安装成功后，设置一下用户信息
+	$ git config --global user.name "Your Name"
+	$ git config --global user.email "email@example.com"
+
+	因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址。
+
+2.创建版本仓库
+	
+     找一个合适的位置，创建一个本地仓库
+	$ mkdir learngit
+	$ cd learngit
+	$ pwd
+	/Users/michael/learngit
+	
+     pwd是查看当前的路径，避免以后遇到奇怪的问题，目录中不能有中文
+
+
+3.将创建好的仓库变成git可以管理的仓库
+	
+	git init
+	
+	会生成一个.git的文件夹，是一个隐藏的文件夹，需要在工具->查看文件夹选项中 ->显示隐藏文件夹
+
+	用命令	ls -ah 也可以看到，在本目录中，生成了一个.git文件夹
+
+4. 将文件添加到仓库
+	
+	git add 文件名
+
+	git commit -m '说明'
+
+	git status 查看仓库的当前状态，是否有被修改过的文件
+
+	git diff   查看被修改的位置
+	
+	git log    显示最近到最远的提交日志
+
+

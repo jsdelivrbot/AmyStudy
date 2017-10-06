@@ -1,0 +1,221 @@
+.nav-pills,.colLeft,hr,.container-fluid
+,.navbar,ul,li,body{
+  margin:0;padding:0;
+}
+
+/*公共属性的设置*/
+ul,li{
+  list-style:none;
+}
+a{
+  text-decoration: none;
+}
+
+/*主体的设置*/
+.main-container{
+  width: 100%;
+  background: #ccd3e5;
+}
+.main-box{
+  background: #83a4d1;
+}
+
+.navLeftBar{
+  color: #fff;
+}
+/*展开按钮的设置*/
+/*清除默认的边框*/
+.panel-group,
+.panel,.panel-heading,
+.panel-title,.panel-collapse,
+.panel-body{
+  border:none;
+  border-radius: none;
+}
+.accordion{
+  background: #83a4d1;
+  border-radius: none;
+  margin:0;
+}
+
+.panel-group #collapseOne .panelSpeadBox{
+  width: 100%;
+  margin:0;
+  padding:0;
+  text-align: center;
+  background: #83a4d1;
+}
+#headingOne{
+  margin:0;
+  border-radius: none;
+}
+.panel-group .panel-heading{
+  background:#83a4d1;
+}
+.panel-group .panel-heading  a{
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+}
+
+/*展开和收起的内容的设置*/
+.speadUlBox li{
+  width: 100%;
+}
+.speadUlBox li a{
+  color: #fff;
+  text-align: left;
+}
+.speadUlBox li a:hover{
+  color: #83a4d1;
+}
+
+/*主体内容中间的设置*/
+.conTop{
+  background: #fff;
+  margin-top: 10px;
+}
+/*发布按钮的设置*/
+
+.publish{
+  background: #ffc09f;
+  border-radius: none;
+  width: 100px;
+  border: none;
+}
+.conTopNav li a{
+  color: #fff;
+}
+.conTopNav li a:hover{
+  color: #83a4d1;
+}
+
+/*用户发表的信息内容设置*/
+.UserInfor{
+  color: #222;
+  font-family: "微软雅黑";
+}
+.userName{
+  font-weight: bold;
+}
+.userSay img{
+  width: 400px;
+  height: 400px;
+  padding-top: 20px;
+  display: block;
+}
+
+/*转发  评论等按钮的设置*/
+.userSetting{
+  background: #fff;
+  margin:0;
+  margin-top: 10px;
+}
+
+.UserInforBtn{
+  display: block;
+  width: 100%;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  border-right: 1px solid #999;
+}
+.userBtnLast{
+  border: none;
+}
+.UserInforBtn:hover{
+  text-decoration: none;
+  color: #111;
+
+}
+
+/*右侧内容的设置*/
+.headBox{
+  position: relative;
+}
+.headImg{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 30%;
+  top:15px;
+}
+/*昵称的设置*/
+.Nickname{
+  background: #fff;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.userNickname{
+  margin-top: 40px;
+}
+.userNickname{
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+}
+/*关注 微博  粉丝的设置*/
+.nickBox{
+  width:100%;
+  text-align: center;
+  color: #333;
+}
+.nickBox:hover{
+  text-decoration: none;
+  color: #ea6a6a;
+}
+.nickBox span{
+  display: block;
+  font-weight: bold;
+  font-size: 20px;
+}
+.nickBox b{
+  font-weight: normal;
+  display: block;
+}
+
+/*右侧 健身等分类 小项目的设置*/
+/*主容器的设置*/
+.RedHost{
+  width: 100%;
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 5px;
+}
+.RightNavList li{
+  width: 100%;
+  overflow:hidden;
+  margin-top: 5px;
+  border-bottom: 1px solid #999;
+  height: 50px;
+  line-height: 50px;
+}
+/*小标题：健身 的设置*/
+.rightNavHead{
+  display: block;
+  width: 100%;
+}
+.rightNavHead span{
+  display: block;
+  color: #333;
+  line-height: 50px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+/*推荐健身用户的设置*/
+.rightNavAEls{
+  display: block;
+  width: 100%;
+}
+.rightNavAEls img{
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+.rightNavAEls span{
+  color: #333;
+  font-weight: bold;
+  margin-left: 10px;
+}

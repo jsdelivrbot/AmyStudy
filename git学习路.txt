@@ -37,5 +37,29 @@
 	git diff   查看被修改的位置
 	
 	git log    显示最近到最远的提交日志
+	
+	git reset --HEAD^  回到之前一次提交
+		
+	git reset --HEAD~100 回到之前第一百次提交
+
+	git reflog    git中的日志，记录每一次的操作
+
+	git reset --hard id号    恢复之前撤销胡文件
+
+	git rm 文件名  删除文件  （例如： git rm test.txt） 
+
+	名词解释：
+		
+		工作区：在本地的仓库文件夹
+		
+		版本库：本地仓库文件夹中的.git文件夹，就是git的版本库
+		
+		暂存区：Git的版本库里存了很多东西，其中最重要的就是称为stage		（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支		master，以及指向master的一个指针叫HEAD
+
+		git add 是将文件提交到暂存区
+
+		git commit 是将暂存区的所有内容提交到当前的分支
+
+
 
 

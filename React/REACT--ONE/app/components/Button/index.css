@@ -1,0 +1,4 @@
+body,h1{margin:0;padding:0;}
+.btn{font-size: 20px;font-weight: normal;color: red;}
+.btn-sm{width:500px;height: 50px;background: orange;color: #fff;border:1px solid #000;}
+.btn-xm{width:600px;height:100px;background: #fff;border:1px solid #f0f;color: #000;}

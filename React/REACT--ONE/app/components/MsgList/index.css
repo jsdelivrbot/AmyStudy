@@ -1,0 +1,8 @@
+body,ul,li,p{margin:0;padding:0;}
+li{list-style: none;}
+.msg-list{border-bottom:1px solid #2eced4;width:800px;height:100px;margin:0 auto;
+}
+.msg-title{font-size: 16px;font-family: "微软雅黑";color:#53dfd7;}
+.msg-con{font-family: "微软雅黑";font-size: 24px;margin-top: 20px;color:#53dfd7;
+		text-indent: 30px;
+}

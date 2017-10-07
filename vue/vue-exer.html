@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="app" v-text="gk">
+      正在加载。。。
+  </div>
+
+
+</body>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+    el : '#app',
+    data:{
+      'gk' : 'Hello' //给Gk 的变量赋值
+    }
+  })
+
+</script>
+</html>

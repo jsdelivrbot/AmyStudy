@@ -1,0 +1,11 @@
+body{margin:0;padding:0;}
+.form{width: 560px;margin:50px auto;}
+.inp-list{margin-top: 20px;overflow: hidden;}
+label{font-size: 20px;color: #50dfd7;font-family: "微软雅黑";}
+.user{width: 410px;height: 45px;border: 2px solid #50dfd7;margin-left: 20px;}
+.inp-con{display:block;margin-top: 10px;float: left;margin-left: 2px;}
+textarea{display:block;min-width: 410px;max-width: 410px;min-height: 200px;max-height: 200px;
+	border: 2px solid #50dfd7;margin-left: 38px;float: left;}
+.pub-btn{border: none;background: #bbece9;float: right;margin-top: 25px;
+		font-size: 20px;color: #fff;font-family: "黑体";width: 127px;height: 45px;
+		text-align: center;line-height: 45px;margin-right: 62px;}

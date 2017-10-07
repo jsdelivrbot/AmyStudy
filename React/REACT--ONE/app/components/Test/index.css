@@ -1,0 +1,7 @@
+body,p,.btn{margin:0;padding:0;}
+.btn{width:300px;height:100px;text-align: center;
+	line-height: 50px;font-size: 20px;}
+.contan{font-size: 20px;margin-top: 20px;width: 400px;
+	height: 400px;border:1px solid #ccc;}
+.con-show{display: block;}
+.con-hide{display: none;}

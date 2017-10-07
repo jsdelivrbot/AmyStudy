@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VUE</title>
+</head>
+<body>
+  <!-- 元素内容 -->
+  <div id="app">
+    {{ message }}
+  </div>
+
+  <!-- 鼠标悬停事件 -->
+  <div id="app-2">
+    <span v-bind:title="message">
+      鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </span>
+  </div>
+
+  <!-- 控制元素的显示与隐藏 -->
+  <div id="app-3">
+    <p v-if="seen">现在你看到我了</p>
+  </div>
+
+  <!-- vue 循环 -->
+  <div id="app-4">
+    <ol>
+      <li v-for="todo in dolist">
+        {{ todo.text }}
+      </li>
+    </ol>
+</div>
+
+
+<!-- vue 的事件 -->
+<div id="app-5">
+  <p>{{ message }}</p>
+  <button v-on:click="reverseMessage">逆转消息</button>
+</div>
+
+
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+ // 设置元素的内容 
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello MangLi!'
+    }
+  })
+
+  // 鼠标的悬停事件
+  var app2 = new Vue({
+    el: '#app-2',
+    data: {
+      message: '页面加载于 ' + new Date().toLocaleString()
+    }
+  })
+
+
+  // 控制元素的显示与隐藏
+  var app3 = new Vue({
+    el:'#app-3',
+    data:{
+      seen:true
+      // seen:false
+    }
+  })
+
+  //vue 循环
+  var app4 = new Vue({
+    el:'#app-4',
+    data:{
+      dolist : [
+        {text:'第一条记录'},
+        {text:'第二条记录'},
+        {text:'第三条记录'},
+      ]
+    }
+  })
+
+  var app5 = new Vue({
+    el:'#app-5',
+    data:{
+      message:'Hello vue!'
+    },
+    methods:{
+      reverseMessage:function(){
+        this.message = this.message.split('').reverse().join('')
+      }
+    }
+  })
+
+
+  // var app5 = new Vue({
+  // el: '#app-5',
+  // data: {
+  //   message: 'Hello Vue.js!'
+  // },
+  // methods: {
+  //   reverseMessage: function () {
+  //     this.message = this.message.split('').reverse().join('')
+  //   }
+  // }
+</script>
+</html>

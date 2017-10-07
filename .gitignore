@@ -1,4 +1,8 @@
 node_modules/*
 *.rar
 b.txt
-node-modules/*
+node-modules/
+node_modules
+*/node_modules
+dist
+

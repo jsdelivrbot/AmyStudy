@@ -1,0 +1,41 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    body{margin:0;padding:0;}
+    p{width:300px;text-align:right;}
+    #content{border-radius: 10px;
+        border:1px solid red;margin:0 auto;
+    }
+  </style>
+</head>
+<body>
+<div id="wrap">
+  <p>您还可以再输入<span id="num">30</span>/30</p>
+  <textarea id="content" rows="10" cols="30"></textarea>
+</div>
+
+
+
+  <script>
+    window.onload = function(){
+      var text = document.getElementById('content');//获取文本框
+      var num = document.getElementById('num');
+      var totalnum = 30;
+      text.onkeyup = function(){
+        var m = parseInt(num.innerHTML);
+        var textchange = this.value;
+        m = totalnum - textchange.length;
+         num.innerHTML = m;
+
+        console.log(document.keyCode);
+
+      }
+
+
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    body,ul,p,a{margin:0;padding:0;}
+    a{text-decoration: none;color:#615b57;}
+    li{list-style: none;}
+    #wrap{
+      width:1000px;
+      margin:0 auto;
+    }
+    #top-list{
+      width:100%;
+      height:50px;
+      overflow: hidden;
+    }
+    #top-list a{
+      float:left;
+      width:10%;
+      text-align: center;
+      padding-left: 3px;
+    }
+    #top-list a:hover{
+      color:#f66f0d;
+    }
+
+    #list-cons{
+      width:100%;
+      margin:0 auto;
+      margin-top: 10px;
+    }
+    #list-cons ul{
+      width: 100%;
+      overflow: hidden;
+      display:none;
+      background: #fff;
+    }
+    #list-cons ul li{
+      float:left;
+      width:16%;
+      height:200px;
+      border-right: 1px solid #d2d2d2;
+    }
+   li img{
+     display: block;
+     width:50%;
+     height:50%;
+     margin:0 auto;
+   }
+   li p{
+     width:100%;
+     text-align: center;
+     margin-top:10px;
+   }
+   p span{
+     display:block;
+     color:#f17c26;
+   }
+
+   #turn{
+     width:1000px;;
+     height:400px;
+     position:fixed;
+     top:30px;
+     left:14%;
+     background:orange;
+     z-index: -100;
+   }
+  </style>
+</head>
+<script>
+/**
+*通过id获取元素
+*/
+
+function Fnid(Eid){
+  return document.getElementById(Eid);
+}
+
+
+/**
+*通过 Tagname获取元素
+@param el表示 获取元素的父元素  Etag获取元素的标签名
+*/
+
+function Fntagname(el,Etag){
+  return el.getElementsByTagName(Etag);
+}
+
+window.onload = function(){
+  var topList = Fnid('top-list');
+  var topaEls = Fntagname(topList,'a');//获取导航的所有标题
+
+  var listCon = Fnid('list-cons');
+  var listulEls = Fntagname(listCon,'ul');//获取所有的  ul
+
+  for(var i = 0; i<topaEls.length; i++){
+    topaEls[i].index = i;
+
+    topaEls[i].onmouseover = function(){
+        start();
+        var m = this.index;
+        listulEls[m].style.display = 'block';
+    }
+
+    topaEls[i].onmouseout = function(){
+        start();
+    }
+
+  }
+/**
+*将所有的 ul 都初始化为隐藏状态
+*/
+function start(){
+  for(var i = 0; i<listulEls.length; i++){
+    listulEls[i].style.display = 'none';
+  }
+}
+
+
+}
+</script>
+<body>
+<div id="wrap">
+  <div id="top-list">
+        <a href="#">小米手机</a>
+        <a href="#">红米</a>
+        <a href="#">平板·笔记本</a>
+        <a href="#">电视</a>
+        <a href="#">盒子·影音</a>
+        <a href="#">路由器</a>
+        <a href="#">智能硬件</a>
+        <a href="#">服务</a>
+        <a href="#">社区</a>
+    </div>
+
+    <div id="list-cons">
+      <!-- 小米手机的下拉菜单 -->
+        <ul>
+            <li>
+                <img src="images/mi-img1.png">
+                <p>小米手机 <span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img2.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img3.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img4.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img5.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img1.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+        </ul>
+
+
+  <!-- 红米的下拉菜单 -->
+        <ul>
+            <li>
+                <img src="images/s-img1.jpg">
+                <p>小米手机 <span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img2.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img3.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img4.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img5.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img1.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+        </ul>
+
+    <!-- 平板·笔记本的下拉菜单 -->
+          <ul>
+              <li>
+                  <img src="images/s-img2.jpg">
+                  <p>小米手机 <span>1099元</span></p>
+              </li>
+
+              <li>
+                  <img src="images/mi-img2.png">
+                  <p>小米手机<span>1099元</span></p>
+              </li>
+
+              <li>
+                  <img src="images/mi-img3.png">
+                  <p>小米手机<span>1099元</span></p>
+              </li>
+
+              <li>
+                  <img src="images/mi-img4.png">
+                  <p>小米手机<span>1099元</span></p>
+              </li>
+
+              <li>
+                  <img src="images/mi-img5.png">
+                  <p>小米手机<span>1099元</span></p>
+              </li>
+
+              <li>
+                  <img src="images/mi-img1.png">
+                  <p>小米手机<span>1099元</span></p>
+              </li>
+          </ul>
+
+  <!-- 电视的下拉菜单 -->
+        <ul>
+            <li>
+                <img src="images/s-img3.jpg">
+                <p>小米手机 <span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img2.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img3.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img4.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img5.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img1.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+        </ul>
+
+        <!-- 电视的下拉菜单 -->
+              <ul>
+                  <li>
+                      <img src="images/s-img4.jpg">
+                      <p>小米手机 <span>1099元</span></p>
+                  </li>
+
+                  <li>
+                      <img src="images/mi-img2.png">
+                      <p>小米手机<span>1099元</span></p>
+                  </li>
+
+                  <li>
+                      <img src="images/mi-img3.png">
+                      <p>小米手机<span>1099元</span></p>
+                  </li>
+
+                  <li>
+                      <img src="images/mi-img4.png">
+                      <p>小米手机<span>1099元</span></p>
+                  </li>
+
+                  <li>
+                      <img src="images/mi-img5.png">
+                      <p>小米手机<span>1099元</span></p>
+                  </li>
+
+                  <li>
+                      <img src="images/mi-img1.png">
+                      <p>小米手机<span>1099元</span></p>
+                  </li>
+              </ul>
+
+
+        <!-- 电视的下拉菜单 -->
+              <ul>
+                  <li>
+                      <img src="images/s-img5.jpg">
+                      <p>小米手机 <span>1099元</span></p>
+                  </li>
+
+                  <li>
+                      <img src="images/mi-img2.png">
+                      <p>小米手机<span>1099元</span></p>
+                  </li>
+
+                  <li>
+                      <img src="images/mi-img3.png">
+                      <p>小米手机<span>1099元</span></p>
+                  </li>
+
+                  <li>
+                      <img src="images/mi-img4.png">
+                      <p>小米手机<span>1099元</span></p>
+                  </li>
+
+                  <li>
+                      <img src="images/mi-img5.png">
+                      <p>小米手机<span>1099元</span></p>
+                  </li>
+
+                  <li>
+                      <img src="images/mi-img1.png">
+                      <p>小米手机<span>1099元</span></p>
+                  </li>
+              </ul>
+
+
+              <!-- 电视的下拉菜单 -->
+                    <ul>
+                        <li>
+                            <img src="images/s-img2.jpg">
+                            <p>小米手机 <span>1099元</span></p>
+                        </li>
+
+                        <li>
+                            <img src="images/mi-img2.png">
+                            <p>小米手机<span>1099元</span></p>
+                        </li>
+
+                        <li>
+                            <img src="images/mi-img3.png">
+                            <p>小米手机<span>1099元</span></p>
+                        </li>
+
+                        <li>
+                            <img src="images/mi-img4.png">
+                            <p>小米手机<span>1099元</span></p>
+                        </li>
+
+                        <li>
+                            <img src="images/mi-img5.png">
+                            <p>小米手机<span>1099元</span></p>
+                        </li>
+
+                        <li>
+                            <img src="images/mi-img1.png">
+                            <p>小米手机<span>1099元</span></p>
+                        </li>
+                    </ul>
+
+
+            <!-- 电视的下拉菜单 -->
+            <ul>
+            <li>
+                <img src="images/s-img4.jpg">
+                <p>小米手机 <span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img2.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img3.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img4.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img5.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+
+            <li>
+                <img src="images/mi-img1.png">
+                <p>小米手机<span>1099元</span></p>
+            </li>
+            </ul>
+
+
+          <!-- 电视的下拉菜单 -->
+                <ul>
+                    <li>
+                        <img src="images/s-img1.jpg">
+                        <p>小米手机 <span>1099元</span></p>
+                    </li>
+
+                    <li>
+                        <img src="images/mi-img2.png">
+                        <p>小米手机<span>1099元</span></p>
+                    </li>
+
+                    <li>
+                        <img src="images/mi-img3.png">
+                        <p>小米手机<span>1099元</span></p>
+                    </li>
+
+                    <li>
+                        <img src="images/mi-img4.png">
+                        <p>小米手机<span>1099元</span></p>
+                    </li>
+
+                    <li>
+                        <img src="images/mi-img5.png">
+                        <p>小米手机<span>1099元</span></p>
+                    </li>
+
+                    <li>
+                        <img src="images/mi-img1.png">
+                        <p>小米手机<span>1099元</span></p>
+                    </li>
+                </ul>
+
+    </div>
+
+
+<div id="turn">
+
+
+</div>
+
+
+</div>
+</body>
+</html>

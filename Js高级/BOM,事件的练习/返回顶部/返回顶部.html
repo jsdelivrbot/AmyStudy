@@ -1,0 +1,94 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    body{margin:0;padding:0;}
+    a{text-decoration: none;color:#504b48;}
+    #top,#fashion,#special,
+    #benefit,#like,#report,
+    #ofen,#quality,#return{
+      width:100%;
+      height:1000px;
+      background:orange;
+      font-size: 30px;
+      text-align: center;
+      color:#fff;
+    }
+    #fashion{background:green;}
+    #special{background:blue;}
+    #benefit{background:pink;}
+    #ofen{background:#e5a06e;}
+    #quality{background:#86bdc5;}
+    #return{background:#e1dfaa;}
+
+    #box{
+      position:fixed;
+      left:5px;
+      bottom:100px;
+      width:41px;
+      display:none;
+    }
+    #box a{
+      display: block;
+      width:100%;
+      height:40px;
+      text-align: center;
+      font-size: 14px;
+      padding:5px;
+      background:#fff;
+      line-height:40px;
+      border-top:1px solid #ccc;
+    }
+    #box .four{
+      line-height: 20px;
+    }
+  </style>
+</head>
+<script>
+
+window.onload = function(){
+
+  var box = document.getElementById('box');
+  // var timeid = null;
+  // var stats = true;
+  window.onscroll = function(){
+    var top = document.body.scrollTop || document.documentElement.scrollTop;
+
+    if(top >=1000){
+      box.style.display = 'block';
+      console.log(top)
+    }else{
+      box.style.display = 'none';
+    }
+
+
+}
+}
+
+</script>
+<body>
+
+  <div id="top">顶部</div>
+  <div id="fashion">时尚</div>
+  <div id="special">特色</div>
+  <div id="benefit">优惠</div>
+  <div id="like">猜你喜欢</div>
+  <div id="ofen">常逛的</div>
+  <div id="quality">品质</div>
+  <div id="return">反馈</div>
+  <div id="report">暴恐举报</div>
+  <div id="box">
+    <a class="four" href="#ofen">我常逛的</a>
+    <a href="#fashion">时尚</a>
+    <a href="#quality">品质</a>
+    <a href="#special">特色</a>
+    <a href="#benefit">实惠</a>
+    <a class="four" href="#like">猜你喜欢</a>
+    <a href="#top">顶部</a>
+    <a href="#return">反馈</a>
+    <a class="four" href="#report">暴恐举报</a>
+  </div>
+</body>
+</html>

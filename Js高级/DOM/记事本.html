@@ -1,0 +1,250 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    body,h3,ul,li{
+      margin:0;
+      padding:0;
+      font-family: '微软雅黑';
+    }
+    li{
+      list-style: none;
+    }
+    a{
+      text-decoration:none;
+    }
+    #wrap{
+      width:800px;
+      margin:0 auto;
+      margin-top:90px;
+    }
+    /*标题的设置*/
+    #wrap h3{
+      font-size:65px;
+      color:#fb3354;
+      font-family: '微软雅黑';
+      padding-left:22%;
+      height:40px;
+      line-height: 40px;
+      font-weight:bold;
+    }
+
+    /*文本框和按钮的设置*/
+    #add-con{
+      width:100%;
+      margin-top:20px;
+    }
+    #text{
+      width:500px;
+      height:33px;
+      font-size:17px;
+      font-family: '微软雅黑';
+    }
+    #add{
+      width:140px;
+      height:39px;
+      background:#fb3354;
+      font-size:25px;
+      color:#fff;
+      font-weight: bold;
+      border: none;
+    }
+
+    /*待办事宜列表的设置*/
+    #add-list{
+      margin-top: 20px;
+    }
+    #add-list li{
+      width:650px;
+      height:50px;
+      border: 1px solid #abaaaa;
+      border-bottom: none;
+      line-height: 50px;
+    }
+    #add-list .last{
+      border-bottom: 1px solid #abaaaa;
+    }
+    /*最后一行的按钮的设置*/
+    .last .btn-list{
+        width:70px;
+        border:none;
+        height:35px;
+        font-size:15px;
+        color:#65666f;
+        text-align: center;
+        background:none;
+    }
+    #add-list li span{
+      display:block;
+      width:65px;
+      height:26px;
+      line-height: 26px;
+      text-align: center;
+      margin-top:9px;
+      color:#fff;
+      border-radius:5px;
+      font-size: 15px;
+      margin-right:40px;
+      background:#fb3354;
+      float:right;
+    }
+    #add-list li a{
+      color:#393535;
+      font-family: '微软雅黑';
+      font-size:17px;
+      padding-left:10px;
+    }
+    #add-list li .underline{
+      text-decoration:line-through;
+      color:#d9d0d0;
+    }
+
+  </style>
+</head>
+<body>
+    <div id="wrap">
+        <h3>Todos</h3>
+        <div id="add-con">
+            <input type="text" placeholder="请添加待办事宜" id="text">
+            <input type="button" value="创建" id="add">
+        </div>
+        <ul id="add-list">
+            <li><a href="#">待办事宜</a> <span>删除</span></li>
+            <li><a href="#">待办事宜</a> <span>删除</span></li>
+            <li class="last">
+                <input type="button" value="所有的" class="btn-list all">
+                <input type="button" value="进行中" class="btn-list now">
+                <input tyep="button" value="已完成的" class="btn-list done">
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script>
+/**
+*通过id获取元素
+*@param String
+*return 元素
+*/
+function fn(sid){
+  return document.getElementById(sid);
+}
+
+/**
+*通过class获取元素
+*@param String
+*return 元素
+*/
+function fnc(sclass){
+  return document.getElementsByClassName(sclass);
+}
+
+    window.onload  =  function(){
+        var text = fn('text');//获取文本框
+        var addBtn = fn('add');//获取创建按钮
+        var list = fn('add-list')//获取ul列表
+        var liEls = fn('add-list').getElementsByTagName('li');//获取li标签
+        var aEls = document.getElementsByTagName('a');//获取a 标签
+        var spanEls = document.getElementsByTagName('span');//获取span标签
+        var btnList = fnc('btn-list');//获取显示按钮
+
+/**
+*点击创建按键向列表中添加要做事宜
+*/
+        addBtn.onclick = function(){
+            var textEl = text.value;
+            var aEl = document.createElement('a');//创建一个a标签
+            var spanEl = document.createElement('span');//创建一个span标签
+            var liEl = document.createElement('li');//创建一个li标签
+
+            aEl.innerHTML = textEl;
+            spanEl.innerHTML = "删除";
+            spanEl.setAttribute('class','del');
+
+            liEl.appendChild(aEl);//向li中追加一个A标签
+            liEl.appendChild(spanEl);//向li中追加一个span标签
+            list.insertBefore(liEl,liEls[0]);//添加到第一个li之前
+            text.value = '';
+
+/**
+*给已经完成的事加删除线
+*/
+            for(var i=0; i<aEls.length;i++){
+              aEls[i].onclick = function(){
+                this.className = 'underline';
+              }
+            }
+/**
+*删除已经完成的事
+*/
+            for(var i=0; i<spanEls.length; i++){
+              spanEls[i].onclick = function(){
+              var spanParent = this.parentNode;  //获取当前span的父li
+                spanParent.parentNode.removeChild(spanParent);
+              }
+            }
+
+      }
+
+/**
+*显示 所有的待办事宜
+*/
+      btnList[0].onclick = function(){
+        for(var i=0;i<aEls.length;i++){
+            var aParent = aEls[i].parentNode;
+            aParent.style.display = 'block';
+        }
+        }
+
+/**
+*显示 正在进行中的待办事宜
+*隐藏 设置了className的对象
+*/
+            btnList[1].onclick = function(){
+              for(var i=0;i<aEls.length;i++){
+                aEls.num = i;
+                if(aEls[i].className != ''){
+                  var m = aEls.num;
+                  var aParent = aEls[m].parentNode;
+                    aParent.style.display = 'none';
+                }else{
+                  var m = aEls.num;
+                  var aParent = aEls[m].parentNode;
+                    aParent.style.display = 'block';
+                }
+              }
+              }
+
+/**
+*显示 已经完成的事宜
+*显示 设置了className的对象
+*/
+
+            btnList[2].onclick = function(){
+              for(var i=0;i<aEls.length;i++){
+                 aEls.num = i;
+                if(aEls[i].className != ''){
+                  var m = aEls.num;
+                  var aParent = aEls[m].parentNode;
+                    aParent.style.display = 'block';
+                }else{
+                  var m = aEls.num;
+                  var aParent = aEls[m].parentNode;
+                  aParent.style.display = 'none';
+                }
+              }
+              }
+
+
+
+
+
+
+
+
+
+    }
+</script>
+</html>

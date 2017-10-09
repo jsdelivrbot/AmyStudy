@@ -1,0 +1,98 @@
+动画
+====
+1. css3动画
+   * transition
+   * animation 帧动画
+   * Js动画
+    1. obj.style.transform="translateX(500px)"
+    2. obj.style.transform="rotate(720deg)"
+    3. obj.style.transform='scall(100)'
+    4.与css配合使用，在动画的标签上设置transition的一些属性
+    5.obj.className='normal animated' //在已有类名的基础上，再添加一个类名
+2.  Js动画
+   * offset 系列
+     1. offsetLeft   //元素距离左侧的长度
+      * 如果父辈元素中有定位元素，那么就返回当前元素最近的定位元素边缘的距离
+      * 如果父辈元素中没有定位元素，那么就返回相对于body左边缘距离
+     2. offsetTop    //元素距离上边的长度
+     3. offsetWidth  //元素本身的宽度加上自身的padding值
+     4. offsetHeight //元素本身的高度
+   * offsetLeft 和 style.left区别
+     1.style.left   不能取值
+     2.Style.left 可以赋值，而offsetLeft 只读，不能设值
+     3.style.left 只能得到行内样式
+     4.取值 用offsetLeft,  赋值用style.left
+   * 匀速运动
+     1. 获取元素当前的 offsetLeft;
+     2. offsetLeft + 某个数值
+     3. 设置定时器，不断执行 1，2
+     4. 到一定位置，清除定时值
+   * move 函数应用
+     1. 动画导航
+        * onmouseover
+        * onmouseout
+   * 获取元素当前的样式
+     1. getComputedStyle(obj,false)[attr]   //attr是一个属性
+        getComputedStyle(box,false)['opacity'];
+        ie8 及以下版本不支持
+     2. obj.currentStyle[attr]
+   * 透明度fade 函数
+     css opacity 0 到 1
+
+   * 属性检测
+     1. 判断某个属性，在某个浏览器
+
+
+
+
+
+fade函数
+
+//透明度函数
+ // fade(boxEl, 1)
+ function fade(obj, nNum){
+   clearInterval(obj.timeId);
+   var speed = 0;
+   //通过speed 正负控制方向
+   if(getStyle(obj, 'opacity') > nNum){
+     speed = -0.01;  //向左
+   }else{
+     speed = 0.01; //向右
+   }
+   obj.timeId = setInterval(function(){
+     var opacity = getStyle(obj, 'opacity');
+     obj.style.opacity = Number(opacity) + speed;
+     var result = nNum - getStyle(obj, 'opacity');
+     if(Math.abs(result) <= 0.01){
+         clearInterval(obj.timeId);
+         obj.style.opacity  = nNum;
+     }
+   }, 30);
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 】/**
+	* 根据样式的属性名，获取值
+	* obj object 元素
+	* attr string 元素属性名
+	* return
+	* getStyle(boxEl, 'width')  100px
+	*/
+	function getStyle(obj, attr){
+		if(obj.currentStyle){ //ie8
+			return obj.currentStyle[attr];
+		}else{ //chrome等标准
+			return getComputedStyle(obj, false)[attr]
+		}
+	}

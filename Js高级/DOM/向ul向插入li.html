@@ -1,0 +1,30 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+</head>
+<script>
+  window.onload = function(){
+      var btn = document.getElementById('btn');
+      var list = document.getElementById('list');
+
+
+      btn.onclick = function(){
+        var text = document.createTextNode('杨先生');
+        var liEl = document.createElement('li');
+        
+        liEl.appendChild(text);
+        list.appendChild(liEl);
+      }
+
+  }
+
+
+</script>
+<body>
+    <ul id="list"></ul>
+    <input type="button" value="添加" id="btn">
+
+</body>
+</html>

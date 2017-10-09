@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/normal.css" id="link">
+</head>
+<body>
+    <button id="normal">默认样式</button>
+    <button id="orange">橙色样式</button>
+    <button id="clear">清除记录</button>
+
+    <div class="box"></div>
+</body>
+<script>
+window.onload = function(){
+var linkbtn = document.getElementById('link');
+var normalBtn = document.getElementById('normal');
+var orangeBtn = document.getElementById('orange');
+var clearBtn = document.getElementById('clear');
+var skin = getCookie('skin');
+
+if(skin != ''){
+  skin = 'normal';
+}else{
+  skin = getCookie('skin');
+}
+
+orangeBtn.onclick = function(){
+  setCookie('skin','orange',10);
+  linkbtn.setAttribute('href','css/orange.css');
+}
+
+normalBtn.onclick = function(){
+  setCookie('skin','normal',10);
+  linkbtn.setAttribute('href','css/normal.css');
+}
+
+clearBtn.onclick = function(){
+  removeCookie(skin);
+}
+
+
+/**
+*写入cookie
+*/
+function setCookie(key,value,time){
+  var date = new Date();
+  date.setDate(date.getDate()+10);
+  date.toGMTString();
+  document.cookie = key + '='+ value + ';' + time;
+}
+
+
+/**
+*获取cookie
+*/
+function getCookie(key){
+  var arr = document.cookie.split('; ');
+  for(var i = 0; i<arr.length; i++){
+     var arr1 = arr[i].split('=');
+     if(key == arr1[0]){
+       return arr1[1];
+     }
+  }
+  return '';
+}
+
+/**
+* 删除cookie  将过期时间设置为昨天
+*/
+function removeCookie(key){
+  //设置某条cookie 过期时间为昨天
+  setCookie(key,'1',-1
+  cnosole.log('removekey'+key);
+}
+}
+
+
+</script>
+</html>

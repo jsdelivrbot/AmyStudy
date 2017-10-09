@@ -1,0 +1,58 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    #wrap{
+      width:600px;
+      height:500px;
+      margin:0 auto;
+      border:1px solid orange;
+      overflow:hidden;
+    }
+    p{
+      width:100px;
+      height:200px;
+      background: red;
+      line-height: 200px;
+      text-align: center;
+      font-size: 50px;
+      color:#fff;
+      border-radius: 5px;
+      float:left;
+      margin-left: 23px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+      <p class="box">1</p>
+      <p class="box">2</p>
+      <p class="box">3</p>
+      <p class="box">4</p>
+      <p class="box">5</p>
+      <p class="box">6</p>
+      <p class="box">7</p>
+      <p class="box">8</p>
+
+  </div>
+</body>
+<script>
+    window.onload = function(){
+        function getRandom(n,m){
+            var num = Math.floor(Math.random()* (m - n + 1) + n);
+            return num;
+        }
+       var boxs = document.getElementsByClassName('box');
+       var timeid = null;
+       var arrColor = ['#4d7a61','#538184','#b9c070','#3e9342','#f05940','#865b85','#6c4b6c','#305249'];
+
+
+       for(var i = 0; i<boxs.length; i++){
+         boxs[i].style.backgroundColor = arrColor[getRandom(0,arrColor.length)];
+       }
+
+    }
+</script>
+</html>

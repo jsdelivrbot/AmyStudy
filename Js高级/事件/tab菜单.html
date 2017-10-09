@@ -1,0 +1,90 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    body{
+      margin:0;padding:0;
+    }
+    #wrap{
+      width:600px;
+      margin:0 auto;
+      border:1px solid red;
+    }
+    #nav{
+      width:100%;
+      overflow:hidden;
+    }
+    #nav span {
+      display:block;
+      width:100px;
+      height:50px;
+      line-height: 50px;
+      text-align: center;
+      float:left;
+      /*background: #70988d;*/
+    }
+    #nav .current{
+      background: #70988d;
+    }
+
+    #content div{
+      width:100%;
+      height:300px;
+      background: #70988d;
+      display: none;
+    }
+    #content .choose{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="nav">
+            <span class="current">菜单一</span>
+            <span>菜单二</span>
+            <span>菜单三</span>
+        </div>
+
+        <div id="content">
+            <div class="choose">1111</div>
+            <div>2222</div>
+            <div>3333</div>
+        </div>
+    </div>
+
+
+    <script>
+        window.onload = function(){
+            var nav = document.getElementById('nav');
+            var navBtns = nav.getElementsByTagName('span');//获取所有的span标签
+
+            var content = document.getElementById('content');
+            var conts = content.getElementsByTagName('div'); //获取所有内容
+
+            for(var i = 0; i<navBtns.length; i++){
+                navBtns[i].index = i;
+
+                navBtns[i].onmouseover = function(){
+                  clearClassName();
+                  this.className = 'current';
+                  var m = this.index;
+                  conts[m].className = '';
+                  conts[m].className = 'choose';
+                }
+            }
+
+
+            function clearClassName(){
+              for(var i = 0; i<conts.length; i++){
+                  conts[i].className = '';
+                  navBtns[i].className = '';
+              }
+            }
+        }
+
+    </script>
+</body>
+</html>

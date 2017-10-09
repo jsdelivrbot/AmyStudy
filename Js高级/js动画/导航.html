@@ -1,0 +1,87 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    body{margin:0;padding:0;}
+    #nav{width:660px;height:50px;background:#ccc;margin:0 auto;margin-top:50px;
+        border:1px solid red;position:relative;
+    }
+    #nav-con{width:100%;position:absolute;left:0;top:0;
+        z-index:11;overflow:hidden;
+    }
+    #nav-con a {
+      display:inline-block;
+      width:100px;height:50px;
+      text-decoration:none;
+      line-height:50px;
+      text-align:center;
+    }
+    #activebox{
+      display:block;
+      width:100px;height:50px;
+      background:orange;
+      position:absolute;
+      left:0;top:0;
+      z-index:8;
+    }
+  </style>
+</head>
+<script>
+function move(obj, nNum){
+		clearInterval(obj.timeId);
+		var speed = 0;
+		//通过speed 正负控制方向
+		if(obj.offsetLeft > nNum){
+			speed = -10;  //向左
+		}else{
+			speed = 10; //向右
+		}
+		obj.timeId = setInterval(function(){
+			var left = obj.offsetLeft;
+			obj.style.left = (left + speed) + 'px';
+      var result = nNum - obj.offsetLeft;
+			if(Math.abs(result) <= 10){
+					clearInterval(obj.timeId);
+					obj.style.left  = nNum + 'px';
+			}
+		}, 30);
+	}
+
+  window.onload =function(){
+      var linkels = document.getElementById('nav-con').getElementsByTagName('a');
+      var activebox = document.getElementById('activebox');
+
+      //给每一个a元素绑定事件
+
+      for(var i = 0; i < linkels.length; i++){
+        linkels[i].onmouseover = function(){
+          var left = this.offsetLeft;
+          move(activebox,left);
+        }
+
+
+      }
+
+
+
+  }
+
+</script>
+<body>
+
+    <div id="nav">
+        <span id="activebox"></span>
+        <div id="nav-con">
+            <a href="#">首页</a>
+            <a href="#">电视</a>
+            <a href="#">电影</a>
+            <a href="#">娱乐</a>
+            <a href="#">运动</a>
+            <a href="#">首页</a>
+        </div>
+
+    </div>
+</body>
+</html>

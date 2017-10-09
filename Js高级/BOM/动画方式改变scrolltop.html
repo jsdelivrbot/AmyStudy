@@ -1,0 +1,66 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    body{margin:0;padding:0;}
+    #top,
+    #middle,
+    #bottom{
+      width:100%;height:800px;background:green;margin-top:20px;
+    }
+    #reback{
+      width:100px;height:100px;background:orange;display:none;
+      position:fixed;right:10px;bottom:200px;
+    }
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <div id="middle"></div>
+  <div id="bottom"></div>
+  <div id="reback">返回顶部</div>
+
+
+  <script>
+      window.onload = function(){
+        var reback = document.getElementById('reback');
+        var timeid = null;
+        var status = true ;
+        //滚动条滚动事件
+        window.onscroll = function(){
+          var top = document.body.scrollTop || document.documentElement.scrollTop;
+          if(top >=600){
+            reback.style.display = 'block';
+          }else{
+            reback.style.display = 'none';
+          }
+
+          //如果滚动条在向上滚动,用户向下滚动了滚动条，则清除定时器
+          if(status == false){
+            clearInterval(timeid)
+          }
+          status = false;    //标明滚动条停止状态
+        }
+
+        reback.onclick = function(){
+             timeid = setInterval(function(){
+              var top = document.body.scrollTop || document.documentElement.scrollTop;
+               var speed = Math.floor(top / 8);
+               document.body.scrollTop = top - speed;
+               document.documentElement.scrollTop = top -speed;
+               console.log('document.body.scrollTop'+top);
+               status = true;
+               if(top < 10){
+                 clearInterval(timeid);
+               }
+            },30)
+
+
+        }
+      }
+
+  </script>
+</body>
+</html>

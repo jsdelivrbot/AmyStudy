@@ -1,0 +1,31 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="wrap">
+        <select id="select">
+            <option value="0">请选择颜色</option>
+            <option value="blue">蓝色</option>
+            <option value="green">绿色</option>
+            <option value="red">红色</option>
+        </select>
+  </div>
+
+
+  <script>
+    window.onload = function(){
+      var sele = document.getElementById('select');
+      sele.onchange = function(){
+        if(this.value != '0'){
+          document.body.style.backgroundColor = this.value;
+        }else{
+          document.body.style.backgroundColor = "#8de3f3"
+        }
+      }
+    }
+  </script>
+</body>
+</html>

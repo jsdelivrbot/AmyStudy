@@ -1,0 +1,23 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+</head>
+<body>
+    <button id="btn">打开百度</button>
+    <script>
+        window.onload = function(){
+          var btn = document.getElementById('btn');
+
+          btn.onclick = function(){
+              window.open(
+                'http://baidu.com',
+                'baiduname',
+                'width = 100,height=200,top = 300,left = 100'
+              )
+          }
+        }
+    </script>
+</body>
+</html>

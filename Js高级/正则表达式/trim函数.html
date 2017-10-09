@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+</head>
+<body>
+
+  <form action="login" method="post">
+      用户名：<input type="text" id="text">
+      <input type="button" value="登录" id="login">
+</form>
+</body>
+
+ <script>
+
+window.onload = function(){
+    var text = document.getElementById('text');
+    var btn = document.getElementById('login');
+
+    btn.onclick = function(){
+      var newText = trim(text.value);
+      if(newText != ''){
+        alert('登录成功');
+      }else{
+        alert('请输入用户名');
+      }
+    }
+
+
+    function trim(str){
+      console.log(str);
+      var str1 = '';
+      var reg = /(^\s*)|(\s*$)/g;
+      var str1 = str.replace(reg,'');
+      return str1;
+    }
+}
+
+ </script>
+</html>

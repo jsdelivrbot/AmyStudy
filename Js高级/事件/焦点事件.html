@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    body{margin:0;padding:0;}
+    #wrap{width:100%;height:1000px;background:#8de3f3;}
+    #text{width:200px;height:30px;margin:50px auto;
+      margin-left: 500px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap">
+        <input type="text" id="text" value="请输入姓名">
+  </div>
+</body>
+<script>
+    window.onload = function(){
+      var text = document.getElementById('text');
+
+      text.onfocus = function(){
+        text.value = '';
+      }
+
+      text.onblur = function(){
+        var msg = text.value;
+        if(msg.length != 0){
+          console.log(text.value);
+        }else{
+          text.value = '请输入姓名';
+        }
+      }
+    }
+
+</script>
+</html>

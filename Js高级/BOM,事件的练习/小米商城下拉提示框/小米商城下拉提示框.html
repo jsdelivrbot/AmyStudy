@@ -1,0 +1,166 @@
+<!Doctype html>
+<html>
+<head>
+  <title>小米商城</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+  <style>
+  ul,li,body{margin:0;padding:0;}
+  li{list-style: none;}
+  a{
+    text-decoration:none;
+    color:#000;
+  }
+  #wrap{
+    width:600px;
+    margin:0 auto;
+    height:500px;
+    /*background: orange;*/
+  }
+  #top{
+    width:100%;
+    overflow:hidden;
+  }
+  #text{
+    float:left;
+    width:245px;
+    height:42px;
+    border:1px solid #f79b57;
+    border-right: none;
+    margin-top:9px;
+    text-align: center;
+  }
+  .iconfont{
+    float:left;
+    width:50px;
+    height:44px;
+    border:1px solid #f79b57;
+    text-align: center;
+    line-height: 44px;
+    font-size: 25px;
+    margin-top:9px;
+  }
+  #content{
+    width:245px;
+    border:1px solid #f79b57;
+    border-top: none;
+    display:none;
+  }
+  #content li{
+    width:99%;
+    margin-left: 2px;
+    height:30px;
+    line-height: 30px;
+    font-size: 15px;
+  }
+  #content li:hover{
+    background: #dedede;
+  }
+  li span{
+    display:inline-block;
+    float:right;
+    font-size: 14px;
+    color:#999;
+    margin-right: 3px;
+  }
+
+  </style>
+</head>
+<script>
+/**
+*通过id 获取元素  String
+*/
+function fn(Eid){
+  return document.getElementById(Eid);
+}
+
+window.onload = function(){
+    var text = fn('text');//获取文本框
+    var list = fn('content');//获取下拉列表
+    var liEls = list.getElementsByTagName('li');//获取所有的li标签
+    var aEls = document.getElementsByTagName('a');//获取所有的商品
+
+  /**
+  *当单击文本框时，下拉列表显示出来，并且将文本框的值置空
+  */
+    text.onclick = function(){
+      text.value = '';
+      list.style.display = 'block';
+    }
+
+    for(var i = 0; i< liEls.length; i++){
+      liEls[i].index = i;
+      liEls[i].onclick = function(){
+        var m = this.index;//取出当前的下标值，确定点击了哪一个商品信息
+        text.value = aEls[m].innerHTML;
+        var link = aEls[m].getAttribute('href');
+        console.log('link'+link);
+        list.style.display = 'none';
+      }
+    }
+
+}
+
+</script>
+<body>
+    <div id="wrap">
+      <div id="top">
+          <input type="text" id="text" value="红米4x 人工智能语音电视">
+          <i class="iconfont icon-search" id="search"></i>
+      </div>
+      <ul id="content">
+        <li>
+           <a href="http://baidu.com">小米5s Plus</a>
+          <span>约有<i>5</i>件</span>
+
+       </li>
+
+        <li>
+          <a href="http://baidu.com">小米MIX</a>
+          <span>约有<i>5</i>件</span>
+        </li>
+
+        <li>
+          <a href="#">手环</a>
+          <span>约有<i>5</i>件</span>
+        </li>
+
+        <li>
+          <a href="#">红米note 4x</a>
+          <span>约有<i>5</i>件</span>
+       </li>
+
+        <li>
+          <a href="#">小米路由器</a>
+          <span>约有<i>5</i>件</span>
+        </li>
+
+        <li>
+          <a href="#">移动电源</a>
+          <span>约有<i>5</i>件</span>
+        </li>
+
+        <li>
+          <a href="#">米家摄像机</a>
+          <span>约有<i>5</i>件</span>
+        </li>
+
+        <li>
+          <a href="#">小米体重秤</a>
+          <span>约有<i>5</i>件</span>
+       </li>
+
+        <li>
+          <a href="#">LED灯</a>
+          <span>约有<i>5</i>件</span>
+        </li>
+
+        <li>
+          <a href="#">优惠套装</a>
+          <span>约有<i>5</i>件</span>
+       </li>
+
+      </ul>
+    </div>
+</body>
+</html>

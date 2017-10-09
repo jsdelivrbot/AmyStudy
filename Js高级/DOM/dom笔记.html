@@ -1,0 +1,85 @@
+DOM
+====
+1. DOM 文档对象类型
+   D--------  document 文档
+   O--------  object 对象
+   M--------  model 模型
+2. 节点
+   * 层级划分
+    1. 父节点
+    2. 子节点
+    3. 兄弟节点
+   * 类型划分
+    1. 元素节点 element node(节点) <p></p>
+    2. 标签中的文字 text node  为文本节点
+3. innerHTML
+   * 会覆盖原来节点中的内容。
+4. DOM 常用操作
+   * 获取节点
+   * 创建节点
+   * 插入节点
+   * 删除节点
+
+5. 获取节点
+   * document.getElementById
+   * document.getElementsByTagName
+   * document.getElementsByClassName
+   * document.querySelector('.box')
+      通过第一个类名为box的选择器
+   * document.querySelectorAll('.box')
+      获取所有类名为box的 css选择器   有兼容问题
+6. 创建节点
+   * createElement('li')   document.createElement
+        创建元素节点
+   * createTextNode('杨先生')
+        创建文本节点
+7. 插入节点
+       把js生成的节点插入到页面中显示出来
+    * appendChild(节点)
+       插入节点
+       list.appendChild(liEl)
+       list.insertBefore(在那个节点插入，要插入的节点)
+    * insertBefore 兼容问题
+      1. insertBefore 的第二个参数 ，如果初始为空 ie会报错，chrome 等浏览器没问题
+
+8. 属性操作
+    * setAttribute 设置节点属性
+      1. setAttribute('src','images/img1.png')
+      2. removeAttribute(属性名)  删除属性
+
+
+9. 删除节点
+  1. 父节点.removeChild(要删除的节点)
+
+10. 父节点
+   * 子节点.parentNode;   获取父节点
+   * 父节点的父节点
+      1.子节点.parentNode.parentNode
+
+11. 节点信息
+   * nodeType
+    1. 文本节点  为3
+    2. 元素节点  为1
+   * nodeName
+    1.元素节点为大写的标签 例如： UL
+    2. 文本节点为  #text
+12. 子节点
+   * firstChild 第一个子节点
+      ie下获取的是元素，chrome 下会获取第一个空节点，例如  回车
+   * lastChild 最后一个子节点
+      也有兼容问题，同上
+   * firstElementChild 第一个元素子节点
+   * lastElementChild 最后一个元素子节点
+   * childNodes 所有的节点  包括回车，文本，标签等
+13. 克隆节点
+   * var nodel = 要克隆的节点.cloneNode(true)
+   * true 会把该节点的子节点一起克隆
+
+14. 兄弟节点
+   * nextSibling 下一个节点
+   * previousSibling 上一个节点
+   * nextElementSibling 下一个元素节点
+   * previousElementSibling 上一个元素节点
+   *　案例
+      1.　insertBefore(要插入的节点，在)
+      2.  nextElementSibling

@@ -1,0 +1,103 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+      #scroll-wrap{
+        width:1100px;height:220px;
+        border:1px solid #ccc;margin:0 auto;
+        overflow:hidden;
+      }
+      #scroll-con{
+        position:absolute;
+        left:0;top:0;
+        width:2200px;height:100%;
+        overflow:hidden;
+      }
+      #scroll-con a,
+      img{
+        display:block;
+        width:220px;height:220px;
+      }
+      #scroll-con a{float:left;}
+
+  </style>
+</head>
+
+<script>
+window.onload = function(){
+  var scrollCon = document.getElementById('scroll-con');//获取整个盒子
+  var allLink = scrollCon.innerHTML + scrollCon.innerHTML;
+  scrollCon.innerHTML = allLink;
+
+  var timeid = null;
+  scrollCon.onmouseover = function(){
+    clearInterval(timeid);
+  }
+
+  scrollCon.onmouseout = function(){
+    timeid = setInterval(function(){
+        //方法一
+        //var left = scrollCon.offsetLeft;
+        //scrollCon.style.left = (left - 5) + 'px';
+        //if(left <= -1100){
+            //scrollCon.style.left = '0px';
+      //  }
+        //方法二
+
+        if(scrollCon.offsetLeft <= -1100){
+          scrollCon.style.left = '0px';
+       	}
+
+       scrollCon.style.left = (scrollCon.offsetLeft - 5) + 'px';
+      },80)}
+
+      timeid = setInterval(function(){
+          //方法一
+          //var left = scrollCon.offsetLeft;
+          //scrollCon.style.left = (left - 5) + 'px';
+          //if(left <= -1100){
+              //scrollCon.style.left = '0px';
+        //  }
+          //方法二
+
+          if(scrollCon.offsetLeft <= -1100){
+            scrollCon.style.left = '0px';
+         }
+         scrollCon.style.left = (scrollCon.offsetLeft - 5) + 'px';
+        },80)
+
+
+}
+
+</script>
+<body>
+
+    <div id="scroll-wrap">
+        <div id="scroll-con">
+            <a href="#">
+                <img src="images/s-img1.jpg">
+            </a>
+
+            <a href="#">
+                <img src="images/s-img2.jpg">
+            </a>
+
+            <a href="#">
+                <img src="images/s-img3.jpg">
+            </a>
+
+            <a href="#">
+                <img src="images/s-img4.jpg">
+            </a>
+
+            <a href="#">
+                <img src="images/s-img5.jpg">
+            </a>
+
+
+        </div >
+    </div>
+</body>
+</html>

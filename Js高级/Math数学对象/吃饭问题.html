@@ -1,0 +1,144 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    body,p{margin:0;padding:0;}
+    #warp{width:600px;margin:0 auto;}
+    #box{
+      width:200px;
+      height:200px;
+      border-radius: 10px;
+      border:1px solid green;
+      text-align: center;
+      line-height: 200px;
+      font-size: 20px;
+      margin:0 auto;
+      margin-top: 100px;
+    }
+    #warp span{
+      display: block;
+      width:100px;
+      height:50px;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 5px;
+      margin:0 auto;
+      margin-top: 5px;
+      /*margin-left: 30px;*/
+
+      border:1px solid blue;
+    }
+      #warp  #stop{
+      display: none;
+    }
+    p{
+      display:block;
+      position:absolute;
+
+      width:100px;
+      height:50px;
+      font-size: 20px;
+      text-align: center;
+      color:#000;
+
+    }
+  </style>
+</head>
+<body>
+  <div id="warp">
+      <div id="box">砂锅</div>
+      <span id="start">开始</span>
+      <span id="stop">停止</span>
+  </div>
+  <!-- <p>1</p>
+  <p>2</p>
+  <p>3</p>
+  <p>4</p>
+  <p>5</p>
+  <p>6</p>
+  <p>7</p>
+  <p>7</p>
+  <p>7</p>
+  <p>7</p> -->
+</body>
+
+<script>
+function getRandom(n,m){
+    var num = Math.floor(Math.random()* (m - n + 1) + n);
+    return num;
+}
+
+window.onload = function(){
+  var arr = ['饺子','面条','火腿饭','砂锅','炒饭','烧烤','火锅','麻辣烫','肠粉','烤肉','肠粉'];
+  var start = document.getElementById('start'); //开始按钮
+  var stop = document.getElementById('stop');//停止按钮
+  var box = document.getElementById('box');//显示框
+  var pEls = document.getElementsByTagName('p');//p标签
+  var width = document.documentElement.clientWidth;//可视区宽度
+  var height = document.documentElement.clientHeight; //可视区高度
+  var timeid = null;
+  var status = true;
+
+  var left = getRandom(0,width - 100);//随机生成位置 可视区的宽度 - 元素本身的宽度
+  var top = getRandom(0,height - 100);
+
+/**
+* 创建10个隐藏的标签  并且
+*/
+  for(var i = 0; i<30; i++){
+     var el = document.createElement('p');
+     var text = arr[getRandom(0,arr.length-1)];
+     el.innerHTML = text;
+     el.style.left = getRandom(0,width - 100) + 'px';
+     el.style.top = getRandom(0,height - 100) + 'px';
+     el.style.display = 'none';
+     document.body.appendChild(el);
+  }
+
+
+  /**
+  * 开始按钮
+  */
+  start.onclick = function(){
+        timeid = setInterval(function(){
+            stop.style.display = 'block';
+            start.style.display = 'none';
+            var text = arr[getRandom(0,arr.length-1)];//随机取出一个食谱
+            var left = getRandom(0,width - 100);//可视区的宽度 - 元素本身的宽度
+            var top = getRandom(0,height - 100);
+            box.innerHTML = text;
+
+            var pEls = document.getElementsByTagName('p');
+            for(var i = 0; i<pEls.length; i++){
+              pEls[i].style.display = 'block';
+              pEls[i].style.left = getRandom(0,width - 100) + 'px';
+              pEls[i].style.top = getRandom(0,width - 100) + 'px';
+            }
+
+      },300)
+  }
+/**
+* 停止按钮
+*/
+  stop.onclick = function(){
+    start.style.display = 'block';
+    stop.style.display = 'none';
+    clearInterval(timeid);
+    var pEls = document.getElementsByTagName('p');
+    for(var i=0; i<pEls.length;i++){
+      pEls[i].style.display = 'none';
+    }
+  }
+
+
+
+
+
+
+}
+
+
+</script>
+</html>

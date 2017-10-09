@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+</head>
+<body>
+
+</body>
+<script>
+  window.onload = function(){
+    var arr = ['1','2','3','2','4','1','4','5','2','1','6'];
+    var str = [];
+
+    var len = arr.length;
+    console.log(arr);
+    for(var i = 0; i<len; i++){
+        //如果不存在  push
+      if(!arrHas(str,arr[i])){
+        var num = arr[i];
+        str.push(num);
+        console.log(arrHas(str,arr[i]));
+      }
+    }
+    console.log(str);
+
+    function arrHas(arr,el){
+
+      for(var i = 0; i<arr.length; i++){
+        if(arr[i] == el){
+          return true;//如果存在 返回true
+        }
+      }
+      return false;
+  }
+
+  }
+
+</script>
+</html>

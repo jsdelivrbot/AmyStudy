@@ -1,0 +1,61 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+      body{margin:0;padding:0;}
+      #box{width:200px;height:200px;background:orange;
+          position:absolute;
+          left:0;
+          top:10px;
+          margin-top:20px;
+      }
+      #box2{
+        width:200px;height:200px;background:red;
+        margin-top:300px;
+      }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <input typef="button" value="move" id="btn">
+  <div id="box2"></div>
+
+</body>
+
+
+<script>
+/**
+*定义一个函数使元素向右运动
+*@param String,Number   元素名，运动想要到的位置
+*/
+  function move(obj,sNum){
+
+    clearInterval(timeid);
+    var speed=10;
+    if((sNum -obj.offsetLeft)<0){
+      speed =-10;
+    }
+      obj.timeid=setInterval(function(){
+          var left=obj.offsetLeft;
+          obj.style.left = (left+speed) + 'px';
+          if(left >=sNum){
+            clearInterval(obj.timeid);
+            obj.style.left='600px';
+          }
+      },30)
+  }
+
+
+
+  window.onload=function(){
+      var box=document.getElementById('box');
+      var btn=document.getElementById('btn');
+      btn.onclick=function(){
+        move(box,600);
+      }
+  }
+
+</script>
+</html>

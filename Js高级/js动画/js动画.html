@@ -1,0 +1,56 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+      body{margin:0;padding:0;}
+      #box{width:200px;height:200px;background:orange;
+          position:absolute;
+          left:0;
+          top:10px;
+      }
+      .box2{
+        width:600px;height:10px;background:red;
+      }
+
+  </style>
+</head>
+<body>
+
+    <div id="box"></div>
+    <input typef="button" value="move" id="btn">
+    <div class="box2"></div>
+</body>
+<script>
+  window.onload=function(){
+      var boxEl=document.getElementById('box');
+      var btn=document.getElementById('btn');
+      var timeid=null;
+
+      btn.onclick=function(){
+        clearInterval(timeid);//系统清除上一个定时器，保证系统只有一个定时器运行
+        
+        timeid=setInterval(function(){
+          var left=boxEl.offsetLeft;
+          boxEl.style.left = (left+10) + 'px';//改变的是left值，所以css要将position设置为relative,或者
+            absolute;
+          if(left >=600){
+            clearInterval(timeid);
+            //直接设置成想要的位置，避免出现移动像素多的问题
+            boxEl.style.left='600px';
+            console.log(boxEl.style.left);
+          }
+
+        },30);
+
+        function move(obj,sNum){
+
+        }
+
+      }
+
+  }
+
+</script>
+</html>

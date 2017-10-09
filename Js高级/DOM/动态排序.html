@@ -1,0 +1,94 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    body{margin:0;padding:0;background:#aac4e6;}
+     li{list-style:none;}
+    #wrap{width:1000px;margin:0 auto;}
+
+    #list li{width:800px;height:50px;border:1px solid red;
+        margin-top:10px;line-height:50px;position:relative;
+        border-radius: 10px;padding-left:10px;
+        box-sizing: border-box;
+    }
+    li span{display:inline-block;width:0;height:0;border:10px solid transparent;
+        margin-left:10px;position:absolute;right:10px;top:5px;
+    }
+    .top{border-top:10px solid black;right:40px;top:15px;}
+    .bottom{border-bottom:10px solid black;}
+    .top:hover{border-top:10px solid #fff;}
+    .bottom:hover{border-bottom:10px solid #fff;}
+
+  </style>
+</head>
+<script>
+    window.onload = function(){
+        var list = document.getElementById('list');
+        var liEls = list.getElementsByTagName('li');
+        var topEls = document.getElementsByClassName('top');
+        var bottomEls = document.getElementsByClassName('bottom');
+/**
+* 向下的箭头  当前与下一个元素交换
+*/
+        for(var i = 0; i<topEls.length; i++){
+            topEls[i].onclick = function(){
+                var topParent = this.parentNode;//获取当前的li
+                var nextLi = topParent.nextElementSibling;// 获取他的下一个li
+                if(topParent.nextElementSibling  == null){
+                  alert('已经到最底部，不能再向下交换！');
+                }else{
+                    list.insertBefore(nextLi,topParent);//将下一个li插入到当前li之前
+                }
+            }
+            /**
+            *向上的箭头  当前元素与上一个元素
+            */
+
+            bottomEls[i].onclick = function(){
+                var topParent = this.parentNode;//获取当前的li
+                var preLi = topParent.previousElementSibling;// 获取他的上一个li
+                console.log('preli'+topParent);
+                if(topParent.previousElementSibling  == null){
+                  alert('已经到最顶部，不能再向上交换！');
+                  //return    中断程序 以下的内容不会执行  直到下一次再触发
+                }else{
+                    list.insertBefore(topParent,preLi);//将下一个li插入到当前li之前
+                }
+            }
+        }
+
+    }
+
+</script>
+<body>
+  <div id="wrap">
+      <ul id="list">
+          <li>1.百度新闻是包含海量资讯的新闻服务平台,真实反映每时每刻的新闻热点
+            <span class="top"></span>
+            <span class="bottom"></span>
+          </li>
+
+          <li>2.真实反映每时每刻的新闻热点
+            <span class="top"></span>
+            <span class="bottom"></span>
+          </li>
+
+          <li>3.百度新闻是包含海量资讯的新闻服务平台,真实反映每时每刻的新闻热点
+            <span class="top"></span>
+            <span class="bottom"></span>
+          </li>
+          <li>4.百度新闻是包含海量资讯的新闻服务平台,真实反映每时每刻的新闻热点
+            <span class="top"></span>
+            <span class="bottom"></span>
+          </li>
+          <li>5.百度新闻是包含海量资讯的新闻服务平台,真实反映每时每刻的新闻热点
+            <span class="top"></span>
+            <span class="bottom"></span>
+          </li>
+
+      </ul>
+  </div>
+</body>
+</html>

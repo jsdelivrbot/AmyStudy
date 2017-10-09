@@ -1,0 +1,138 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+    #scroll-wrap{
+      width:1100px;height:400px;
+      position:relative;
+      margin:0 auto;
+      margin-top:30px;
+      overflow:hidden;
+    }
+    #scroll-btn{
+      position:absolute;
+      width:100px;height:50px;
+      right:10px;top:0;
+    }
+    #scroll-btn span{
+      display:block;
+      width:40px;height:20px;
+      background:#ccc;
+      font-size:20px;
+      color:#fff;
+      float:left;
+      line-height: 20px;
+      text-align:center;
+      margin-left: 5px;
+      font-weight:blod;
+    }
+
+    #scroll-con{
+      position:absolute;
+      width:2200px;
+      left:0;top:60px;
+      overflow:hidden;
+    }
+
+    #scroll-con a,
+    img{
+      display:block;
+      float:left;
+      width:214px;height:200px;
+    }
+    #scroll-con a{
+      border-top:1px solid #ccc;
+      margin-left:5px;
+    }
+    #scroll-con a:hover{
+      border-top: 1px solid red;
+    }
+  </style>
+</head>
+<script>
+  window.onload = function(){
+      var btns = document.getElementById('scroll-btn').getElementsByTagName('span');//获取箭头
+      var aEls = document.getElementsByTagName('a');//获取每一个图片的父元素
+      var scrollCon = document.getElementById('scroll-con');//获取大容器
+
+
+
+      //向前的按钮点击后
+      btns[0].onclick = function(){
+        if(scrollCon.offsetLeft == -1100){
+            scrollCon.style.left =  '0px';
+        }
+      }
+
+      //向后的按钮点击后
+      btns[1].onclick = function(){
+         if(scrollCon.offsetLeft == 0){
+             scrollCon.style.left =  '-1100px';
+         }
+      }
+
+
+  }
+
+
+</script>
+<body>
+    <div id="scroll-wrap">
+        <div id="scroll-btn">
+            <span><</span>
+            <span>></span>
+        </div>
+        <div id="scroll-con">
+            <a href="#">
+                <img src="images/s-img1.jpg">
+            </a>
+
+            <a href="#">
+                <img src="images/s-img2.jpg">
+            </a>
+
+            <a href="#">
+                <img src="images/s-img3.jpg">
+            </a>
+
+            <a href="#">
+                <img src="images/s-img4.jpg">
+            </a>
+
+            <a href="#">
+                <img src="images/s-img5.jpg">
+            </a>
+
+
+
+
+            <!--第二屏-->
+            <a href="#">
+                <img src="images/mi-img1.png">
+            </a>
+
+            <a href="#">
+                <img src="images/mi-img2.png">
+            </a>
+
+            <a href="#">
+                <img src="images/mi-img3.png">
+            </a>
+
+            <a href="#">
+                <img src="images/mi-img4.png">
+            </a>
+
+            <a href="#">
+                <img src="images/mi-img5.png">
+            </a>
+
+
+
+        </div>
+
+    </div>
+</body>
+</html>

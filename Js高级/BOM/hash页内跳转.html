@@ -1,0 +1,77 @@
+<!Doctype html>
+<html>
+<head>
+  <title>页内跳转</title>
+  <meta charset="utf-8">
+  <style>
+    html,body{margin:0;padding:0;}
+    #top,#middle,#bottom{
+      width:100%;height:1500px;
+      background: blue;
+      color:#fff;
+      text-align:center;
+      font-size:30px;
+    }
+    #middle{
+      background: orange;
+    }
+    #bottom{
+      background: #0fbccc;
+    }
+
+    #nav {
+      width:100px;
+      height:100px;
+      position:fixed;
+      right:10px;
+      bottom:50%;
+      background:red;
+    }
+    #nav span{
+      display:block;
+      height:30%;
+      font-size:20px;
+      text-align:center;
+      line-height:30px;
+    }
+
+  </style>
+</head>
+<body>
+    <div id="top">顶部</div>
+    <div id="middle">中部</div>
+    <div id="bottom">底部</div>
+    <div id="nav">
+        <span>顶部</span>
+        <span>中部</span>
+        <span>底部</span>
+    </div>
+
+
+  <script>
+      window.onload = function(){
+        var nav = document.getElementById('nav');
+        var navBtns = nav.getElementsByTagName('span');
+        var arr = ['#top','#middle','#bottom'];
+
+        for(var i = 0; i < navBtns.length; i++){
+           navBtns[i].num = i;
+           navBtns[i].onclick = function(){
+             var m = this.num;
+             location.hash = arr[m];
+             this.style.backgroundColor = '#0fbccc';
+           }
+
+           window.onscroll = function(){
+             for(var i = 0; i<navBtns.length; i++){
+               navBtns[i].style.backgroundColor = 'red';
+             }
+           }
+        }
+
+      }
+
+
+  </script>
+</body>
+</html>

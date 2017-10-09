@@ -1,0 +1,72 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+      body,ul{margin:0;padding:0;background:#fae4cf;}
+      a{text-decoration:none;}
+      #wrap{width:600px;margin:0 auto;margin-top:60px;  }
+      #btn{display:block;width:70px;height:20px;border-radius:15px;
+        margin-left: 470px;margin-top: 20px;
+      }
+      #list li{list-style:none;margin:0;padding:0;position:relative;
+          margin-top: 10px;
+      }
+       img{display:inline-block;width:60px;height:60px;
+        border-radius:50%;}
+       a{display:inline-block;width:400px;height:40px;border-radius:20px;
+            background:#ccc2b9;margin-top:10px;
+            position:absolute;left:70px;top:0;
+            color:#fff;font-size:20px;padding:10px;
+            box-sizing: border-box;
+      }
+
+  </style>
+</head>
+<script>
+  window.onload = function(){
+      var btn = document.getElementById('btn');
+      var list = document.getElementById('list');
+      var liEls = document.getElementById('list').getElementsByTagName('li');
+      var textarea = document.getElementById('text');
+
+      btn.onclick = function(){
+          var text = textarea.value;
+          var liEl = document.createElement('li');//创建一个li标签
+          var imgEl = document.createElement('img');//创建一个img标签
+          var aEl = document.createElement('a');//创建一个A标签
+
+          liEl.onclick = function(){
+            //list.removeChild(liEl);
+            list.removeChild(this);
+          }
+          aEl.innerHTML = text;
+          imgEl.setAttribute('src','images/img1.png');
+
+        if(liEls.length == 0){
+          list.appendChild(liEl);
+          liEl.appendChild(imgEl);
+          liEl.appendChild(aEl);
+        }else{
+          liEl.appendChild(imgEl);
+          console.log(liEl);
+          liEl.appendChild(aEl);
+          list.insertBefore(liEl,liEls[0]);
+
+        }
+        textarea.value = '';
+
+      }
+  }
+
+</script>
+<body>
+  <div id="wrap">
+    <textarea cols="70" rows="10" id="text"></textarea>
+    <input type="button" value="留言" id="btn">
+    <ul id="list"> <ul>
+
+  </div>
+</body>
+</html>

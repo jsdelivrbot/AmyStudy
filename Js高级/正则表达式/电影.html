@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+  h2,h6,p,body{margin:0;padding:0;}
+  #wrap{
+    width:1000px;
+    margin:0 auto;
+    overflow:hidden;
+  }
+
+  .box{
+    width:45%;
+    height:400px;
+    float:left;
+    overflow: hidden;
+    margin-left: 2px;
+    margin:30px 0;
+  }
+  .box img{
+    display:block;
+    float:left;
+    width:40%;
+    height:80%;
+    background: orange;
+  }
+  .box #box-right{
+    float:left;
+    margin-left:6px;
+    padding:20px 0;
+    box-sizing: border-box;
+  }
+  .original_title{
+    color:#666;
+    margin-left: 6px;
+  }
+  .rating{
+    color:orange;
+    margin-top: 20px;
+  }
+  p{
+    margin-top: 10px;
+  }
+  .genres{
+    color:#333;
+  }
+  </style>
+</head>
+<body>
+
+  <div id="wrap">
+      <div class="box">
+          <img src="">
+
+          <div id="box-right">
+            <!-- <h2 class="title"></h2>
+            <h6 class="original_title">Beauty and the Beast </h6> -->
+            <h2 class="rating">8.2</h2>
+            <p class="genres">爱情，奇幻，歌舞</p>
+            <p class="detail">2017年</p>
+          </div>
+      </div>
+
+
+
+
+  </div>
+
+</body>
+<script src="data.js"></script>
+<script>
+
+window.onload = function(){
+  var boxRight = document.getElementById('box-right');
+  console.log(data);
+
+    createElement("title","h2",0);
+    
+
+
+    var originalTitle = document.createElement('h6');//添加  original_title
+    originalTitle.className = 'original_title';
+    originalTitle.innerHTML = data.subjects[0].original_title;
+    boxRight.appendChild(originalTitle); 
+
+    
+
+    
+
+
+  function createElement(Els,type,index){
+    var Els = document.createElement(type);
+    Els.className = Els;
+    Els.innerHTML = data.subjects[index].Els;//添加 标题内容
+    console.log('index'+index);
+    boxRight.appendChild(Els);
+  }
+
+}
+
+
+</script>
+</html>

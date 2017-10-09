@@ -1,0 +1,43 @@
+<!Doctype html>
+<html>
+<head>
+  <title>bom</title>
+  <meta charset="utf-8">
+  <style>
+    body{margin:0;padding:0;}
+    #box{width:300px;height:300px;background:orange;}
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <button id="btn">删除</button>
+  <script>
+/**
+*全局函数，全局变量
+*/
+    var foo = 'hello world';
+    function text(){
+      console.log('红豆生南国');
+    }
+    window.onload = function(){
+      console.log(window.foo)//调用全局变量
+      console.log(window.text())//调用全局函数
+
+      var btn = document.getElementById('btn');
+      var box = document.getElementById('box');
+
+      var text = window.prompt('输入内容');
+      console.log(typeof(text));
+      btn.onclick = function(){
+        var yn = window.confirm('亲，真是要删除吗？');
+        if(yn){
+          document.body.removeChild(box);
+        }else{
+          box.innerHTML = text;
+        }
+      }
+
+    }
+  </script>
+</body>
+</html>

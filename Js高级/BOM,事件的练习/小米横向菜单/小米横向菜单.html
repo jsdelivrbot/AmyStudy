@@ -1,0 +1,553 @@
+<!Doctype html>
+<html>
+<head>
+  <title>小米横向菜单</title>
+  <meta charset="utf-8">
+
+
+  <style>
+    body,div,ul{margin:0;padding:0;font-family: "微软雅黑"}
+    li{list-style: none;}
+    a{text-decoration: none;}
+    #wrap{
+      width:1000px;
+      height:330px;
+      margin-top:20px;
+      overflow: hidden;
+    }
+    #w-left,
+    #w-right{
+      float:left;
+      height:100%;
+    }
+/*左侧列表项的设置*/
+    #w-left{
+      width:22%;
+      background: #97928f;
+      color:#fff;
+    }
+    #w-left ul{
+      padding:15px 0;
+    }
+    #w-left ul li{
+      width:100%;
+      height:30px;
+      font-size: 15px;
+      padding-left: 15px;
+      box-sizing: border-box;
+    }
+
+    #w-left ul li span{
+      float:right;
+      margin-right: 10px;
+      font-size: 20px;
+    }
+    #w-left ul li:hover{
+      background: #ed7821;
+    }
+
+/*右侧商品信息的设置*/
+    #w-right{
+      width:77%;
+      height:99%;
+      display:none;
+      border:1px solid #ccc;
+    }
+    .right-cons{
+      width:100%;
+      margin-top: 10px;
+      display:none;
+      overflow:hidden;
+    }
+    .right-cons ul{
+      float:left;
+      width:24%;
+      height:100%;
+      padding-left: 5px;
+      box-sizing: border-box;
+      margin-right: 1%;
+    }
+    .right-cons ul li{
+      width:100%;
+      overflow:hidden;
+      margin-top: 17px;
+
+    }
+    .right-cons ul li img{
+      display: block;
+      float:left;
+      margin-right: 5px;
+      width:18%;
+      height:18%;
+    }
+    .right-cons ul li a{
+      color:#504b48;
+      font-size:14px;
+    }
+  </style>
+</head>
+<script>
+/**
+*通过 id获取元素
+*/
+
+function Fnid(Eid){
+  return document.getElementById(Eid);
+}
+
+/**
+*通过 class名获取元素
+*/
+function Fnclass(Eclass){
+  return document.getElementsByClassName(Eclass);
+}
+
+
+window.onload = function(){
+   var Llist = Fnid('w-left');//获取左侧内容
+   var Lul = Llist.getElementsByTagName('ul');
+   var LliEls = Lul[0].getElementsByTagName('li');//获取左侧列表
+
+   var Rbox = Fnid('w-right');//获取右侧内容
+   var Rcons = Fnclass('right-cons');
+
+/**
+*遍历左侧列表项 与右侧的内容进行绑定
+*/
+   for( var i = 0 ; i< LliEls.length; i++){
+      LliEls[i].index = i;
+
+      LliEls[i].onmouseover = function(){
+        start();
+        var m = this.index;
+        Rbox.style.display = 'block';
+        Rcons[m].style.display = 'block';
+
+      }
+
+      LliEls[i].onmouseout = function(){
+        Rcons[this.index].style.display = 'none';
+        Rbox.style.display = 'none';
+
+      }
+
+
+
+   }
+
+/**
+*初始化
+*/
+function start(){
+   for(var i = 0; i<Rcons.length; i++){
+     Rcons[i].style.display = 'none';
+   }
+ }
+
+}
+
+
+</script>
+<body>
+  <div id="wrap">
+      <div id="w-left" >
+          <ul>
+            <li>手机 电话卡<span>></span></li>
+            <li>笔记本 平板<span>></span></li>
+            <li>电视 盒子<span>></span></li>
+            <li>路由器 智能硬件<span>></span></li>
+            <li>移动电源 电池 插线板<span>></span></li>
+            <li>耳机 音响<span>></span></li>
+            <li>保护套 贴膜<span>></span></li>
+            <li>线材 支架 存储卡<span>></span></li>
+            <li>箱包 服饰<span>></span></li>
+            <li>米兔 生活周边<span>></span></li>
+          </ul>
+      </div>
+
+     <div id="w-right">
+          <div class="right-cons">
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+          </div>
+
+<!-- 第二个 -->
+          <div class="right-cons">
+              <ul>
+                  <li><img src="images/mi-img2.png"><a href="#">电脑</a></li>
+                  <li><img src="images/mi-img2.png"><a href="#">平板</a></li>
+                  <li><img src="images/mi-img2.png"><a href="#">电脑</a></li>
+                  <li><img src="images/mi-img2.png"><a href="#">电脑</a></li>
+                  <li><img src="images/mi-img2.png"><a href="#">电脑</a></li>
+                  <li><img src="images/mi-img2.png"><a href="#">电脑</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+          </div>
+<!-- 第三个 -->
+          <div class="right-cons">
+              <ul>
+                  <li><img src="images/mi-img3.png"><a href="#">电视</a></li>
+                  <li><img src="images/mi-img3.png"><a href="#">电视</a></li>
+                  <li><img src="images/mi-img3.png"><a href="#">电视</a></li>
+                  <li><img src="images/mi-img3.png"><a href="#">电视</a></li>
+                  <li><img src="images/mi-img3.png"><a href="#">电视</a></li>
+                  <li><img src="images/mi-img3.png"><a href="#">电视</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+          </div>
+<!-- 第四个 -->
+          <div class="right-cons">
+              <ul>
+                  <li><img src="images/mi-img4.png"><a href="#">路由器</a></li>
+                  <li><img src="images/mi-img4.png"><a href="#">路由器</a></li>
+                  <li><img src="images/mi-img4.png"><a href="#">路由器</a></li>
+                  <li><img src="images/mi-img4.png"><a href="#">路由器</a></li>
+                  <li><img src="images/mi-img4.png"><a href="#">路由器</a></li>
+                  <li><img src="images/mi-img4.png"><a href="#">路由器</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+          </div>
+<!-- 第五个 -->
+          <div class="right-cons">
+              <ul>
+                  <li><img src="images/mi-img5.png"><a href="#">移动电源</a></li>
+                  <li><img src="images/mi-img5.png"><a href="#">移动电源</a></li>
+                  <li><img src="images/mi-img5.png"><a href="#">移动电源</a></li>
+                  <li><img src="images/mi-img5.png"><a href="#">移动电源</a></li>
+                  <li><img src="images/mi-img5.png"><a href="#">移动电源</a></li>
+                  <li><img src="images/mi-img5.png"><a href="#">移动电源</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+          </div>
+<!-- 第六个 -->
+          <div class="right-cons">
+              <ul>
+                  <li><img src="images/s-img1.jpg"><a href="#">耳机</a></li>
+                  <li><img src="images/s-img1.jpg"><a href="#">耳机</a></li>
+                  <li><img src="images/s-img1.jpg"><a href="#">耳机</a></li>
+                  <li><img src="images/s-img1.jpg"><a href="#">耳机</a></li>
+                  <li><img src="images/s-img1.jpg"><a href="#">耳机</a></li>
+                  <li><img src="images/s-img1.jpg"><a href="#">耳机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+          </div>
+<!-- 第七个 -->
+          <div class="right-cons">
+              <ul>
+                  <li><img src="images/s-img2.jpg"><a href="#">保护套</a></li>
+                  <li><img src="images/s-img2.jpg"><a href="#">保护套</a></li>
+                  <li><img src="images/s-img2.jpg"><a href="#">保护套</a></li>
+                  <li><img src="images/s-img2.jpg"><a href="#">保护套</a></li>
+                  <li><img src="images/s-img2.jpg"><a href="#">保护套</a></li>
+                  <li><img src="images/s-img2.jpg"><a href="#">保护套</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+          </div>
+<!-- 第八个 -->
+          <div class="right-cons">
+              <ul>
+                  <li><img src="images/s-img3.jpg"><a href="#">线材</a></li>
+                  <li><img src="images/s-img3.jpg"><a href="#">线材</a></li>
+                  <li><img src="images/s-img3.jpg"><a href="#">线材</a></li>
+                  <li><img src="images/s-img3.jpg"><a href="#">线材</a></li>
+                  <li><img src="images/s-img3.jpg"><a href="#">线材</a></li>
+                  <li><img src="images/s-img3.jpg"><a href="#">线材</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+          </div>
+<!-- 第九个 -->
+          <div class="right-cons">
+              <ul>
+                  <li><img src="images/s-img4.jpg"><a href="#">箱包</a></li>
+                  <li><img src="images/s-img4.jpg"><a href="#">箱包</a></li>
+                  <li><img src="images/s-img4.jpg"><a href="#">箱包</a></li>
+                  <li><img src="images/s-img4.jpg"><a href="#">箱包</a></li>
+                  <li><img src="images/s-img4.jpg"><a href="#">箱包</a></li>
+                  <li><img src="images/s-img4.jpg"><a href="#">箱包</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+          </div>
+<!-- 第十个 -->
+          <div class="right-cons">
+              <ul>
+                  <li><img src="images/s-img5.jpg"><a href="#">米兔</a></li>
+                  <li><img src="images/s-img5.jpg"><a href="#">米兔</a></li>
+                  <li><img src="images/s-img5.jpg"><a href="#">米兔</a></li>
+                  <li><img src="images/s-img5.jpg"><a href="#">米兔</a></li>
+                  <li><img src="images/s-img5.jpg"><a href="#">米兔</a></li>
+                  <li><img src="images/s-img5.jpg"><a href="#">米兔</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+
+              <ul>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+                  <li><img src="images/mi-img1.png"><a href="#">小米手机</a></li>
+              </ul>
+          </div>
+     </div>
+  </div>
+
+</body>
+</html>

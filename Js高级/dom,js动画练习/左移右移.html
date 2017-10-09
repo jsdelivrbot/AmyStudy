@@ -1,0 +1,146 @@
+<!Doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+      body,ul{margin:0;padding:0;background:#fff;}
+      li{list-style:none;}
+      #wrap{overflow:hidden;width:800px;margin:0 auto;margin-top:40px;}
+      #wrap #left,
+      #wrap #middle,
+      #wrap #right{
+        width:30%;
+        height:400px;
+        float:left;
+        background:#ccffcc;
+        margin-left:10px;
+      }
+      p{
+        font-size:30px;
+        text-align: center;
+        font-weight:bold;
+        color:#6d6b66;
+      }
+      li{
+        font-size:25px;
+        color:#6d6b66;
+        text-align: center;
+        box-sizing: border-box;
+
+      }
+      .clicked{
+        background:#333;
+      }
+      #middle{
+        padding-top: 45px;
+        box-sizing: border-box;
+      }
+      #toLeft,#toRight{
+        width:100px;
+        height:50px;
+        line-height: 50px;
+        text-align: center;
+        background: #66cccc;
+        color:#fff;
+        border-radius: 5px;
+        margin:10px auto;
+      }
+  </style>
+  <script>
+  /**
+   * 通过id获取元素
+   *@param String
+   */
+
+  function fn(sid){
+  	return document.getElementById(sid);
+  }
+
+	window.onload = function(){
+			var Lul = fn('left');
+			var LliEls = Lul.getElementsByTagName('li');//获取左侧li
+
+			var Rul = fn('right');
+			var RliEls = Rul.getElementsByTagName('li');//获取右侧li
+
+			var Toleft = fn('toLeft');//获取左移按钮
+			var Toright = fn('toRight');//获取右移按钮
+
+
+
+/**
+*左移元素
+*/
+      for(var i=0;i<RliEls.length;i++){
+          RliEls[i].onclick = function(){
+            this.className = 'clicked';
+          }
+          Toleft.onclick = function(){
+            for(var j=0;j<RliEls.length;j++){
+              if(RliEls[j].className == 'clicked'){
+                var text = RliEls[j].innerHTML;
+                var liEl = document.createElement('li');
+                liEl.innerHTML = text;   //创建一个li标签
+
+                Lul.appendChild(liEl);//向第一个li标签之前添加
+                RliEls[j].style.display = 'none';
+              }
+            }
+          }
+      }
+
+
+/**
+*右移元素
+*/
+  for(var i=0;i<LliEls.length;i++){
+      LliEls[i].onclick = function(){
+        this.className = 'clicked';
+      }
+
+      Toright.onclick = function(){
+        for(var j=0;j<LliEls.length;j++){
+            if(LliEls[j].className =='clicked'){
+              var text = LliEls[j].innerHTML;
+              var liEl = document.createElement('li');
+              liEl.innerHTML = text;   //创建一个li标签
+
+              Rul.appendChild(liEl);//向第一个li标签之前添加
+              LliEls[j].style.display = 'none';
+            }
+        }
+      }
+  }
+	}
+  </script>
+</head>
+<body>
+  <div id="wrap">
+
+      <ul id="left">
+          <p>颜值组</p>
+          <li >杨幂</li>
+          <li>赵丽颖</li>
+          <li>高圆圆</li>
+          <li>胡歌</li>
+          <li>霍建华</li>
+      </ul>
+
+      <ul id="middle">
+        <li id="toLeft">左移</li>
+        <li id="toRight">右移</li>
+      </ul>
+
+      <ul id="right">
+          <p>逗逼组</p>
+          <li>李易峰</li>
+          <li>杨洋</li>
+          <li>吴亦凡</li>
+
+      </ul>
+  </div>
+
+</body>
+
+</html>

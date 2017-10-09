@@ -1,0 +1,308 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+  ul,body,h2{
+    margin:0;padding:0;
+  }
+  li{
+    list-style: none;
+  }
+
+  #wrap{
+    width:800px;
+    margin:0 auto;
+
+  }
+ h2{
+   font-size: 30px;
+   text-align: center;
+   padding:30px 0;
+ }
+  #content{
+    width:90%;
+    margin:0 auto;
+  }
+  /*标题列表 的设置*/
+  #tip-list{
+    width:100%;
+    overflow: hidden;
+  }
+  #tip-list li{
+    float: left;
+    width:33%;
+    height:50px;
+    text-align: center;
+    line-height: 50px;
+    border:1px solid #ccc;
+  }
+  #tip-list .clicked{
+    border:1px solid red;
+    border-bottom: none;
+  }
+
+  /*内容的设置*/
+  #list-box
+  {
+    clear: both;
+  }
+ #list-box .box{
+    width:99%;
+    height:400px;
+    border:1px solid #ccc;
+    border-top: none;
+    padding:0 auto;
+    box-sizing: border-box;
+    display: none;
+
+  }
+
+/*邮箱注册 设置*/
+input[type='text']{
+  width:300px;
+  display: block;
+  margin:0 auto;
+  margin:10px 0;
+  font-size: 16px;
+  height:30px;
+}
+p{
+  font-size: 10px;
+  color:red;
+  display: none;
+}
+#accept{
+  display: block;
+  float: right;
+  width:200px;
+  height:50px;
+  margin-right: 10px;
+  text-align: center;
+  line-height: 50px;
+  background: red;
+}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <h2>盛大游戏</h2>
+    <div id="content">
+      <ul id="tip-list">
+            <li >手机注册</li>
+            <li>邮箱注册</li>
+            <li>个性注册</li>
+      </ul>
+
+
+      <div id="list-box">
+          <div class="box">
+              手机注册
+          </div>
+
+          <div class="box">
+            <div id="em-ps">
+              <input type="text" id="email" placeholder="请输入邮箱">
+              <p id="e-tip">邮箱填写错误，请更正</p>
+              <input type="text" id="password" placeholder="请输入密码">
+              <p id="pass-tip">邮箱填写错误，请更正</p>
+            </div>
+
+            <div id="real">
+              <input type="text" id="realname" placeholder="请输入真实姓名">
+              <p id="re-tip">填写错误，姓名为至少2-5个汉字</p>
+              <input type="text" id="idcard" placeholder="请输入身份证号">
+              <p id="ca-tip">身份证号错误</p>
+            </div>
+            <span id="accept">接受协议并注册</span>
+          </div>
+
+
+          <div class="box">
+              个性注册
+          </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+<script>
+/**
+*通过 id获取元素
+*/
+function Fid(id){
+  return document.getElementById(id);
+}
+
+/**
+* 去掉前后空格
+*/
+function trim(str){
+  var str1 = '';
+  var reg = /(^\s*)|(\s*$)/g;
+  str1 = str.replace(reg,'');
+  return str1;
+}
+
+/**
+* 验证身份证号的正确性
+*/
+function isIDcard(str){
+ var str1 = trim(str);
+ if(str1.length != 0){
+    var reg = /^(\d{15}|\d{17}(\d|X))$/;
+    var r = str1.match(reg);
+   if(r == null){
+     return false;
+   }
+   return true;
+ }
+}
+
+
+/**
+*判断邮箱格式
+*/
+function isemail(str){
+  var str1 = trim(str);
+  if(str1.length != 0){
+    var reg = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+    var r = str1.match(reg);
+    if(r == null){
+      return false;
+    }
+    return true;
+  }
+}
+
+/**
+*判断密码格式
+* 六位以上的数字或字母组合
+*/
+
+function ispassword(str){
+  var str1 = trim(str);
+  if(str1.lenght != 0){
+    var reg = /^[A-Za-z0-9]{6,}$/;
+    var r = str1.match(reg);
+    if(r == null){
+      return false;
+    }else{
+      return true;
+    }
+  }
+}
+
+
+/**
+* 判断真实姓名
+* 真实姓名为 2-5个汉字
+*/
+function isrealName(str){
+  var str1 = trim(str);
+  if(str1.length != 0){
+     var reg = /^[\u4e00-\u9fa5]{2,5}$/;
+     var r = str1.match(reg);
+     if(r == null){
+       return false;
+     }else{
+       return true;
+     }
+  }
+}
+
+
+
+window.onload = function(){
+  var uTip = Fid('tip-list');
+  var Lis = uTip.getElementsByTagName('li');//获取列表
+  var tipBoxs = document.getElementsByClassName('box');//获取内容框
+
+  var email = Fid('email');//获取邮箱的文本框
+  var etip = Fid('e-tip');//获取邮箱的提示框
+  var password = Fid('password');//获取密码文本框
+  var ptip = Fid('pass-tip');//获取密码的提示框
+
+  var real = Fid('realname');//获取真实姓名文本框
+  var retip = Fid('re-tip')//获取真实姓名提示框
+  var idcard = Fid('idcard');//获取身份证文本框
+  var cartip = Fid('ca-tip');//获取身份证提示框
+
+  var btn = Fid('accept');//获取注册按钮
+
+
+//显示隐藏列表框
+  for(var i = 0; i<Lis.length; i++){
+    Lis[i].index = i;
+    Lis[i].onclick = function(){
+      startBox();
+      var num = this.index;
+       Lis[num].className = 'clicked';    //将列表点击的列表 类名设置为 clicked
+      tipBoxs[num].style.display = 'block';
+    }
+
+  }
+
+//注册按钮点击 后
+  accept.onclick = function(event){
+      var idcardValue = idcard.value;//获取身份证号
+      var emailValue = email.value;//获取邮箱
+      var passValue = password.value;//获取密码
+      var realValue = real.value;//获取真实姓名
+/**
+*判断身份证号是否正确
+*/
+      if( !isIDcard(idcardValue)){
+        cartip.style.display = 'block';
+        event.preventDefault();//阻止表单提交
+      }else{
+        cartip.style.display = 'none';
+      }
+/**
+* 判断邮箱格式是否正确
+*/
+      if(!isemail(emailValue)){
+        etip.style.display = 'block';
+        event.preventDefault();//阻止表单提交
+      }else{
+        etip.style.display = 'none';
+   }
+/**
+* 判断密码格式是否正确
+*/
+      if(!ispassword(passValue)){
+          ptip.style.display = 'block';
+          event.preventDefault();//阻止表单提交
+      }else{
+        ptip.style.display = 'none';
+      }
+
+/**
+*判断真实姓名是否正确
+*/
+    if(isrealName(realValue)){
+      retip.style.display = 'none';
+    }else{
+      retip.style.display = 'block';
+      event.preventDefault();//阻止表单提交
+    }
+
+  }
+
+/**
+* 将内容框的 的类名初始化
+*/
+
+function startBox(){
+  for(var i = 0; i<tipBoxs.length;i++){
+    Lis[i].className = "";
+    tipBoxs[i].style.display = 'none';
+  }
+}
+
+}
+
+</script>
+</html>

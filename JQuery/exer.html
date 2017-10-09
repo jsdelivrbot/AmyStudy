@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <div id="foobar">
+    <div></div>
+    <div id="foo"></div>
+  </div>
+
+
+  <script src="jQuery/jquery-1.8.3.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        console.log($("div").index($('#foo')[0]));
+    });
+
+
+    // $("div").index($('#foobar')[0])  // 0
+    // $("div").index($('#foo')[0])  // 2
+    // $("div").index($('#foo'))  // -1
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+  body{margin:0;padding:0;}
+  #btn{
+    width:100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+  }
+  #box{
+    width:100px;
+    height:100px;
+    position: absolute;
+    left: 0;
+    top: 200px;
+    background: red;
+  }
+  </style>
+</head>
+<body>
+  <button id="btn">移动</button>
+  <div id="box"></box>
+
+  <script src="jQuery/jquery-1.8.3.min.js"></script>
+  <script>
+    $('document').ready(function(){
+      $('#btn').click(function(){
+        $('#box').animate({
+          left : '400px',//最终要到达的位置
+          width: '200px',
+          opacity : 0.5,
+          top : '400px'
+        },1000,function(){
+          alert('动画执行完毕')
+          $(this).css({
+            left:"300px",
+            width:"400px",
+            top: "300px"
+        })
+        });
+
+
+      });
+
+    });
+  </script>
+</body
+
+</html>

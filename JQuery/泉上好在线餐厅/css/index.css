@@ -1,0 +1,200 @@
+body,p,ul,h2,h5,li{margin:0;padding:0;}
+body{
+  font-family: "微软雅黑";
+  background:#fffaf3;
+}
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+#top{
+  width:100%;
+  height:67px;
+  background: #363636;
+}
+#top-con{
+  width:980px;
+  height:100px;
+  margin:0 auto;
+  overflow: hidden;
+}
+
+#t-left{
+  float: left;
+  color: #d9d9d9;
+  font-family: "微软雅黑";
+  background:url(../images/tele.jpg) no-repeat;
+  padding-left: 25px;
+  box-sizing: border-box;
+  margin-top: 20px;
+}
+#t-right{
+  float: right;
+  width: 300px;
+  height: 100%;
+}
+#t-right .text{
+  width: 200px;
+  margin-top:8px;
+  border-radius: 10px;
+}
+#t-right .btn{
+  color:#ececec;
+  margin-left: 5px;
+}
+/*顶部导航栏的设置*/
+#top-nav{
+  width:980px;
+  margin:0 auto;
+  position: relative;
+}
+h2{
+  float: left;
+  color:#ff9701;
+  height: 100%;
+  line-height:105px;
+  font-weight: bold;
+  font-size: 40px;
+}
+/*顶部导航栏  ul 的设置*/
+#tnav-right{
+  float: left;
+  margin-left: 60px;
+  position: relative;
+}
+#index{
+  float:left;
+  color:#212121;
+  text-align: center;
+  line-height: 72px;
+  font-size: 16px;
+  font-weight: normal;
+  width: 90px;
+  height: 72px;
+  padding-top: 20px;
+}
+
+#tnav-right li{
+  float: left;
+  width:90px;
+  position: relative;
+}
+#tnav-right li h5{
+  color:#212121;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 72px;
+  padding-top: 20px;
+  font-size: 15px;
+  font-weight: normal;
+  width: 90px;
+}
+
+/*设置点击后的li 的样式*/
+#tnav-right li .clicked{
+  background:rgba(255,171,51,0.8);
+}
+
+
+/*导航列表下的  下拉列表的设置*/
+
+.nav-list{
+  position: absolute;
+  top: 76px;
+  left: 0;
+  width:90px;
+  background:rgba(255,171,51,0.8);
+  display: none;
+  z-index: 120;
+}
+
+.nav-list a{
+  display: block;
+  color:#000;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  border-top:1px solid #fff;
+}
+.nav-list a:hover{
+  background:#f56b00;
+}
+
+/*banner的设置*/
+#banner{
+  width:100%;
+  height:668px;
+  overflow: hidden;
+  background:url(../images/banner.jpg) no-repeat;
+  position: relative;
+
+}
+/*轮播图的设置*/
+#ban-con{
+  width:960px;
+  height:393px;
+  margin:0 auto;
+  position:relative;
+  z-index: 90;
+}
+#ban-con a{
+  position:absolute;
+  left: 0;
+  top: 0;
+}
+
+/*轮播图按钮的设置*/
+.slid-btn{
+  position: absolute;
+  display: block;
+  background: rgba(255,255,255,0.5);
+  width:40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color:#000;
+  top:150px;
+  font-size: 20px;
+}
+.pre-btn{
+  left:150px;
+}
+.next-btn{
+  right:155px;
+}
+
+/*轮播图小圆点的设置*/
+
+#pager {
+  position: absolute;
+  width:300px;
+  height: 30px;
+  right: 452px;
+  bottom: 306px;
+  overflow: hidden;
+  z-index: 100;
+}
+#pager span{
+  float: left;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border:1px solid #fff;
+  margin-left: 12px;
+  margin-top: 6px;
+  background: #838281;
+}
+#pager .pager-active{
+  background: #f7a52f;
+}
+
+/*banner 简介的设置*/
+#banner-intro{
+  width: 100%;
+  height: 264px;
+  background: #363636;
+}

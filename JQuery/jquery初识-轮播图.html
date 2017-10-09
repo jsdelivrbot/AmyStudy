@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+  body{margin:0;padding:0;}
+  #slide-wrap{
+    width:960px;
+    height:460px;
+    margin:30px auto;
+    position: relative;
+    overflow: hidden;
+  }
+  #slide-con{
+    width: 100%;
+    height: 100%;
+  }
+  #slide-con a{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  .btn{
+    width:40px;
+    height:68px;
+    display: block;
+    position: absolute;
+    top:200px;
+    z-index: 100;
+  }
+  .pre-btn{
+    background:url(images/prev-btn.png) no-repeat;
+    left:0;
+  }
+  .next-btn{
+    background:url(images/next-btn.png) no-repeat;
+    right:0;
+  }
+  #slide-btn {
+    width:200px;
+    height:30px;
+    position:absolute;
+    padding-right: 0;
+    bottom: 20px;
+    right: 0px;
+    z-index: 100;
+  }
+   #slide-btn span{
+    display: block;
+    width:10px;
+    height: 10px;
+    float: left;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    z-index: 100;
+    /*background: #fff;*/
+  }
+  #slide-btn .now{
+    background: #fff;
+  }
+  </style>
+</head>
+<body>
+
+<div id="slide-wrap">
+  <div id="slide-con">
+      <a href="javascript:void(0)">
+          <img src="images/slide-img1.jpg" />
+      </a>
+
+      <a href="javascript:void(0)">
+          <img src="images/slide-img2.jpg" />
+      </a>
+
+      <a href="javascript:void(0)">
+          <img src="images/slide-img3.jpg" />
+      </a>
+
+      <a href="javascript:void(0)">
+          <img src="images/slide-img4.jpg" />
+      </a>
+
+  </div>
+
+  <a href="javascript:void(0)" class="btn pre-btn"></a>
+  <a href="javascript:void(0)" class="btn next-btn"></a>
+
+  <div id="slide-btn">
+      <!-- <span ></span>
+      <span ></span>
+      <span ></span>
+      <span></span> -->
+  </div>
+</div>
+
+
+
+
+  <script src="jQuery/jquery-1.8.3.min.js"></script>
+  <script>
+    $('document').ready(function(){
+      var aEls = $('#slide-con a');//获取每一个图片
+      var index = 0;
+      var num = aEls.length;
+      $('#slide-con a').eq(0).css('opacity',1);//设置第一张图的透明度为1
+
+
+      var timeid = null;
+
+      for(var i = 0;i<num; i++){
+        $('#slide-btn').append('<span></span>');
+      }
+
+      var spanEls =   $('#slide-btn span');
+      $('#slide-btn span').eq(0).addClass('now');
+/**
+* 设置图片的层级
+*/
+
+// for(var i = 0;i < aEls.length; i++){
+//   aEls.eq(i).attr('zIndex',30 - i);
+//   // var num = 30;
+//   // aEls.eq(i).css('zIndex', num - i);
+// }
+      aEls.each(function(i,el){
+        $(el).css('zIndex',30 - i);
+      })
+/**
+* 获取下一个按钮
+* 点击按钮时，先让前一张消失 索引值递增  显示 后一张
+* 索引 值递增到最后一张时， 将索引值设置为第一张
+*/
+
+  $('.next-btn').click(function(){
+    play();
+  });
+  /**
+  * 获取上一个按钮
+  * 点击按钮时， 将当前的消失，索引值递减， 显示前一张
+  * 索引值递减到第一张时，将索引值 设置为最后一张
+  */
+  $('.pre-btn').click(function(){
+      hideImg(index);
+      index --;
+      if(index < 0){
+        index = num - 1;
+      }
+      showImg(index);
+  });
+
+//自动播放
+ timeid = setInterval(function(){
+   play();
+ },1500);
+
+/**
+* 容器hover 时的效果
+*/
+ $('#slide-wrap').hover(function(){//鼠标移入轮播图时，清除定时器
+    clearInterval(timeid);
+ },function(){//鼠标移出时，开启定时器
+   timeid = setInterval(function(){
+     play();
+   },1500);
+ })
+
+/**
+*点击小圆点
+*/
+ $('#slide-btn span').click(function(){
+   $(this).siblings().removeClass('now');//消除当前的兄弟元素的 类名
+   $(this).addClass('now');//给当前的小圆点 添加类名
+   var i = $('#slide-btn span').index(this);
+   $('#slide-con a').eq(index).animate({
+     opacity: 0
+   },500);
+   index = i;
+   $('#slide-con a').eq(index).animate({
+     opacity:1
+   },500);
+
+ })
+
+
+
+/**
+*next btn
+*/
+
+function play(){
+  hideImg(index);
+  index ++;
+  if(index >= num ){
+    index = 0;
+  }
+  showImg(index);
+}
+/**
+* 显示 图片
+*/
+function showImg(index){
+  aEls.eq(index).animate({
+    opacity: 1
+  },500);
+  spanEls.eq(index).addClass('now');
+}
+/**
+* 隐藏 图片
+*/
+function hideImg(index){
+  aEls.eq(index).animate({
+    opacity: 0
+  },500);
+  spanEls.eq(index).removeClass('now');
+}
+
+
+
+});
+  </script>
+</body
+
+</html>

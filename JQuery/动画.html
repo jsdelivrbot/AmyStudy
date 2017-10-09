@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: orange;
+			border-radius: 50%;
+			position: relative;
+			text-align: center;
+			line-height: 100px;
+			top: 10px;
+		}
+
+	</style>
+</head>
+<body>
+
+<button id="go1">1</button>
+
+<div id="block1">Block1</div>
+<div id="block2">Block2</div>
+<div id="block3">Block2</div>
+
+
+<script src="jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+
+	$("#go1").click(function(){
+		start();
+		
+	});
+
+	
+
+	// 第一个小球开始  调用第二个小球
+	function start(){
+			$("#block1").animate( { left: "+500px"}, 1000,'swing',start2);
+	}
+  	// 第二个小球开始  调用第三个小球
+  	function start2(){
+		$("#block2").animate( { left: "+500px"}, 1000,'swing',start3);
+	}
+	//第三个小球开始  调用第三个小球的回去函数  ret
+	function start3(){
+		$("#block3").animate( { left: "+500px"}, 1000,'swing',ret);
+	}
+
+
+
+	//第一个小球开始回去  调用第二个小球的回去函数  
+	function ret(){
+		$("#block1").animate({left:"-0px"},1000,'swing',ret2);
+	}
+	//第二个小球开始回去  调用第三个小球的回去函数  
+	function ret2(){
+		$("#block2").animate({left:"-0px"},1000,'swing',ret3);
+	}
+	//第三个小球开始回去  调用第一个小球的函数  
+	function ret3(){
+		$("#block3").animate({left:"-0px"},1000,'swing',start);
+	}
+	
+
+
+
+
+
+
+</script>
+</body>
+</html>

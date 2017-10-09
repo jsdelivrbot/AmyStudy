@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <style>
+  body,ul,li{
+    margin:0;padding:0;
+  }
+
+ ul li{
+   list-style: none;
+   margin-top: 20px;
+ }
+
+ ul{
+   float: left;
+   margin-left: 20px;
+ }
+  #wrap{
+    width:1000px;
+    height:300px;
+    overflow:hidden;
+    margin:0 auto;
+  }
+
+  #left{
+    width:200px;
+    height:100%;
+    float: left;
+    background:#ccc;
+  }
+  #classify{
+    margin:30px;
+    display: block;
+    width:100px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #fff;
+  }
+  #right{
+    width:780px;
+    height:100%;
+    float:left;
+    background:#fff;
+    display: none;
+  }
+
+
+  </style>
+</head>
+<body>
+
+
+<div id="wrap">
+  <div id="left">
+    <span id="classify">分类</span>
+  </div>
+  <div id="right">
+
+      <ul>
+          <li>手机</li>
+          <li>影音视听</li>
+          <li>大家电</li>
+          <li>电脑硬件</li>
+          <li>家装主材</li>
+          <li>汽车内个饰用品</li>
+      </ul>
+
+      <ul>
+          <li>智能设备</li>
+          <li>3c数码配件</li>
+          <li>厨房电器</li>
+          <li>车载电子/影音</li>
+          <li>电玩游戏</li>
+          <li>相机/摄像机</li>
+      </ul>
+
+      <ul>
+          <li>平板电视</li>
+          <li>网络设备</li>
+          <li>笔记本</li>
+          <li>玩具/模型/动漫/早。。</li>
+          <li>精品男装</li>
+      </ul>
+
+      <ul>
+          <li>空气净化/氧吧</li>
+          <li>手机号/3G/宽带</li>
+          <li>电子/电工</li>
+          <li>烧水壶/电热水壶</li>
+          <li>T恤</li>
+      </ul>
+
+      <ul>
+          <li>平板电脑/MID</li>
+          <li>生活电器</li>
+          <li>品牌箱包</li>
+          <li>行车记录仪</li>
+          <li>电子词典/电纸书</li>
+      </ul>
+      <span id="retract">收起</span>
+  </div>
+
+</div>
+
+<script src="jQuery/jquery-1.8.3.min.js"></script>
+<script>
+
+window.onload = function(){
+
+  var classify = $('#classify')//获取  分类  按钮
+	var retract = $('#retract');//获取  收起  按钮
+
+
+  $('#classify').click(function(){
+      $('#right').show('slow');
+  });
+
+
+  $('#retract').click(function(){
+    $('#right').hide('fast');
+
+  });
+
+
+}
+</script>
+</body>
+</html>

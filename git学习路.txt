@@ -65,3 +65,5 @@
 
 
 
+如果没有config文件，那么创建config文件
+vim config 

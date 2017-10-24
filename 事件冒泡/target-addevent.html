@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			#fDiv{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="fDiv">
+			<p>元素</p>
+		</div>
+	</body>
+	<script>
+		window.onload = function(){
+			var oDiv = document.getElementById('fDiv');
+			var oP = document.getElementsByTagName('p')[0];
+			oP.addEventListener('click',function(){
+				alert('点击了p 标签');
+			});
+			oDiv.addEventListener('click',function(){
+				alert('点击了div标签');
+			});
+		}
+	</script>
+</html>

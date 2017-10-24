@@ -13,14 +13,14 @@ class Newmovie extends Component{
 	}
 
 	componentDidMount(){
-		console.log('start   ' + this.state.start)
-		console.log('count   ' + this.state.count)
+		// console.log('start   ' + this.state.start)
+		// console.log('count   ' + this.state.count)
 		let url = '/api/movie/coming_soon?apikey=0b2bdeda43b5688921839c8ecb20399b&start='
 		+this.state.start+'&count='+this.state.count;
 		axios.get(url)
 		.then((result)=>{
 			let data = result.data;
-			console.log(result);
+			// console.log(result);
 			this.setState({
 				data:data.subjects
 			})

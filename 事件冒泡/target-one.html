@@ -1,0 +1,29 @@
+<!DOCtype html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oUL = document.getElementById('ul');
+			oUL.onclick = function(ev){
+				var ev = ev || window.event;
+				var target = ev.target || ev.srcElement;
+				if(target.nodeName.toLowerCase() == 'li'){
+					alert('123');
+					alert(target.innerHTML);
+				}
+			}
+		}
+	</script>
+</html>
+	

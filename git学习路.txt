@@ -1,69 +1,72 @@
-����Git
-��װgit
+下载Git
+安装git
 
-1.��װ�ɹ�������һ���û���Ϣ
+1.安装成功后，设置一下用户信息
 	$ git config --global user.name "Your Name"
 	$ git config --global user.email "email@example.com"
 
-	��ΪGit�Ƿֲ�ʽ�汾����ϵͳ�����ԣ�ÿ�������������Ա����ţ�������ֺ�Email��ַ��
+	因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址。
 
-2.�����汾�ֿ�
+2.创建版本仓库
 	
-     ��һ�����ʵ�λ�ã�����һ�����زֿ�
+     找一个合适的位置，创建一个本地仓库
 	$ mkdir learngit
 	$ cd learngit
 	$ pwd
 	/Users/michael/learngit
 	
-     pwd�ǲ鿴��ǰ��·���������Ժ�������ֵ����⣬Ŀ¼�в���������
+     pwd是查看当前的路径，避免以后遇到奇怪的问题，目录中不能有中文
 
 
-3.�������õĲֿ���git���Թ����Ĳֿ�
+3.将创建好的仓库变成git可以管理的仓库
 	
 	git init
 	
-	������һ��.git���ļ��У���һ�����ص��ļ��У���Ҫ�ڹ���->�鿴�ļ���ѡ���� ->��ʾ�����ļ���
+	会生成一个.git的文件夹，是一个隐藏的文件夹，需要在工具->查看文件夹选项中 ->显示隐藏文件夹
 
-	������	ls -ah Ҳ���Կ������ڱ�Ŀ¼�У�������һ��.git�ļ���
+	用命令	ls -ah 也可以看到，在本目录中，生成了一个.git文件夹
 
-4. ���ļ����ӵ��ֿ�
+4. 将文件添加到仓库
 	
-	git add �ļ���
+	git add 文件名
 
-	git commit -m '˵��'
+	git commit -m '说明'
 
-	git status �鿴�ֿ�ĵ�ǰ״̬���Ƿ��б��޸Ĺ����ļ�
+	git status 查看仓库的当前状态，是否有被修改过的文件
 
-	git diff   �鿴���޸ĵ�λ��
+	git diff   查看被修改的位置
 	
-	git log    ��ʾ�������Զ���ύ��־
+	git log    显示最近到最远的提交日志
 	
-	git reset --HEAD^  �ص�֮ǰһ���ύ
+	git reset --HEAD^  回到之前一次提交
 		
-	git reset --HEAD~100 �ص�֮ǰ��һ�ٴ��ύ
+	git reset --HEAD~100 回到之前第一百次提交
 
-	git reflog    git�е���־����¼ÿһ�εĲ���
+	git reflog    git中的日志，记录每一次的操作
 
-	git reset --hard id��    �ָ�֮ǰ�������ļ�
+	git reset --hard id号    恢复之前撤销胡文件
 
-	git rm �ļ���  ɾ���ļ�  �����磺 git rm test.txt�� 
+	git rm 文件名  删除文件  （例如： git rm test.txt） 
 
-	���ʽ��ͣ�
+	名词解释：
 		
-		���������ڱ��صĲֿ��ļ���
+		工作区：在本地的仓库文件夹
 		
-		�汾�⣺���زֿ��ļ����е�.git�ļ��У�����git�İ汾��
+		版本库：本地仓库文件夹中的.git文件夹，就是git的版本库
 		
-		�ݴ�����Git�İ汾������˺ܶණ������������Ҫ�ľ��ǳ�Ϊstage		�����߽�index�����ݴ���������GitΪ�����Զ������ĵ�һ����֧		master���Լ�ָ��master��һ��ָ���HEAD
+		暂存区：Git的版本库里存了很多东西，其中最重要的就是称为stage		（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支		master，以及指向master的一个指针叫HEAD
 
-		git add �ǽ��ļ��ύ���ݴ���
+		git add 是将文件提交到暂存区
 
-		git commit �ǽ��ݴ��������������ύ����ǰ�ķ�֧
-5.���͵�Զ�ֿ̲�
+		git commit 是将暂存区的所有内容提交到当前的分支
+5.推送到远程仓库
 
 	git remote add origin git@github.com:Amy-lily/AmyStudy.git
 
 
 
-���û��config�ļ�����ô����config�ļ�
+如果没有config文件，那么创建config文件
 vim config 
+
+创建ssh key 
+https://www.cnblogs.com/superGG1990/p/6844952.html

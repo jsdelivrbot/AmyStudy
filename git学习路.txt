@@ -59,13 +59,21 @@
 		git add 是将文件提交到暂存区
 
 		git commit 是将暂存区的所有内容提交到当前的分支
-5.推送到远程仓库
+5.连接到远程仓库
 
 	git remote add origin git@github.com:Amy-lily/AmyStudy.git
+6.推送到远程仓库
+	git push -u origin master
+7.如果推送不上去，可以先拉取远程仓库中的文件
+	git pull origin master 
+8.如果本地仓库与远程仓库不一致，会导致pull失败，可以执行以下命令，将本地仓库与远程仓库结合
+	git pull origin master --allow-unrelated-histories  命令执行完成后，会弹出liunx命令，询问两个仓库和并的理由，输入i进入编辑模式，将黄色文字部分替换，可以不替换，以:wq退出
+9.拉取成功后，可以在执行以上5-6步。
 
 
 
-如果没有config文件，那么创建config文件
+
+如果没有config文件，那么创建config文件 
 vim config 
 
 创建ssh key 
